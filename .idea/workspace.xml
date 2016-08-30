@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="Did a lot of work">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/A.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/B.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/C.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/added.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/changed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/same.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/subtracted.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MyPillow.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test.py" />
+    <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/1.png" afterPath="$PROJECT_DIR$/test/1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/2.png" afterPath="$PROJECT_DIR$/test/2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/3.png" afterPath="$PROJECT_DIR$/test/3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/4.png" afterPath="$PROJECT_DIR$/test/4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/5.png" afterPath="$PROJECT_DIR$/test/5.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/6.png" afterPath="$PROJECT_DIR$/test/6.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/A.png" afterPath="$PROJECT_DIR$/test/A.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/B.png" afterPath="$PROJECT_DIR$/test/B.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/C.png" afterPath="$PROJECT_DIR$/test/C.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/added.png" afterPath="$PROJECT_DIR$/test/added.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/changed.png" afterPath="$PROJECT_DIR$/test/changed.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/same.png" afterPath="$PROJECT_DIR$/test/same.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/subtracted.png" afterPath="$PROJECT_DIR$/test/subtracted.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agent.py" afterPath="$PROJECT_DIR$/Agent.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProblemSet.py" afterPath="$PROJECT_DIR$/ProblemSet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RavensProject.py" afterPath="$PROJECT_DIR$/RavensProject.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AgentAnswers.csv" afterPath="$PROJECT_DIR$/AgentAnswers.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyPillow.py" afterPath="$PROJECT_DIR$/MyPillow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProblemResults.csv" afterPath="$PROJECT_DIR$/ProblemResults.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Problems/ProblemSetList.txt" afterPath="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SetResults.csv" afterPath="$PROJECT_DIR$/SetResults.csv" />
     </list>
     <ignored path="Project-Code-Python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +35,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project-Code-Python$Pillow.coverage" NAME="Pillow Coverage Results" MODIFIED="1472510339476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1472517635307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1472499414654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1472521987353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1472525895369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -50,9 +50,14 @@
       <file leaf-file-name="Agent.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="587">
+              <caret line="112" column="73" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
+              <folding>
+                <element signature="e#431#456#0" expanded="true" />
+                <element signature="e#2659#2885#0" expanded="false" />
+                <element signature="e#4470#4551#0" expanded="false" />
+                <element signature="e#4591#4699#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,8 +65,8 @@
       <file leaf-file-name="MyPillow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyPillow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+            <state relative-caret-position="374">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -72,8 +77,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+            <state relative-caret-position="136">
+              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -105,6 +110,7 @@
         <option value="$PROJECT_DIR$/test/MyPillow.py" />
         <option value="$PROJECT_DIR$/RavensProject.py" />
         <option value="$PROJECT_DIR$/ProblemSet.py" />
+        <option value="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
         <option value="$PROJECT_DIR$/MyPillow.py" />
         <option value="$PROJECT_DIR$/test/test.py" />
         <option value="$PROJECT_DIR$/Agent.py" />
@@ -211,7 +217,7 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="proj&#9;ACTION&#9;ActivateProjectToolWindow&#10;wrap&#9;ACTION&#9;EditorToggleUseSoftWraps" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -228,7 +234,7 @@
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Challenge Problems C" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.RavensProject">
     <configuration default="false" name="RavensProject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -243,24 +249,6 @@
       <module name="Project-Code-Python" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RavensProject.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Pillow" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project-Code-Python" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\MyPillow.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -491,16 +479,14 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Python.RavensProject" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Pillow" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.test" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Pillow" />
-        <item index="2" class="java.lang.String" itemvalue="Python.RavensProject" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.RavensProject" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -525,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1472503392283</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added MyPillow.py and started to create functions for image comparison like added, subtracted, same, different.">
+      <created>1472517775551</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1472517775551</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -565,18 +558,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit&#10;Transitioning from verbal setup to visual only." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit&#10;Transitioning from verbal setup to visual only." />
+    <MESSAGE value="Added MyPillow.py and started to create functions for image comparison like added, subtracted, same, different." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added MyPillow.py and started to create functions for image comparison like added, subtracted, same, different." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/Basic Problem B-05/6.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/Basic Problem B-05/A.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -669,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/TestProblemSetList.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -718,14 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RavensFigure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/Basic Problem B-09/ProblemAnswer.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -740,14 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RavensProblem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pillow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -757,11 +723,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/3.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -845,9 +806,51 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/A.png">
+    <entry file="file://$PROJECT_DIR$/RavensProblem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RavensFigure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-59">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/ProblemList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/3.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyPillow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/B.png">
@@ -855,7 +858,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/subtracted.png">
+    <entry file="file://$PROJECT_DIR$/test/A.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -865,14 +868,9 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MyPillow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/test/subtracted.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/same.png">
@@ -887,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="136">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
@@ -897,9 +895,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="587">
+          <caret line="112" column="73" selection-start-line="112" selection-start-column="73" selection-end-line="112" selection-end-column="73" />
+          <folding>
+            <element signature="e#431#456#0" expanded="true" />
+            <element signature="e#2659#2885#0" expanded="false" />
+            <element signature="e#4470#4551#0" expanded="false" />
+            <element signature="e#4591#4699#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,6 +1,7 @@
 from PIL import Image, ImageChops as chops
 import numpy as np
-import os
+
+IMAGE_SIZE = (100, 100)
 
 def getSameImage(im1, im2):
     return chops.invert(getChangedImage(im1, im2))
@@ -18,10 +19,11 @@ def getSubtractionsImage(im1, im2):
     return chops.subtract(im2, im1)
 
 
-# Given two images, returns the number of pixels that don't match
-# 0 is perfect match, while higher number returned means more pixels are mismatched
+# Given two images, returns percentage of matching pixels (0 - 100)
 def getImageMatchScore(im1, im2):
-    return np.count_nonzero(getChangedImage(im1, im2))
+    different_pixels = np.count_nonzero(getChangedImage(im1, im2))
+    total_pixels = im1.size[0] * im1.size[1]
+    return (1 - (different_pixels / total_pixels)) * 100
 
 
 # Standardize the image's size to 184x184 and turn everything black or white
@@ -30,7 +32,7 @@ def normalize(*images):
     for i in range(len(images)):
         image = images[i]
 
-        image = image.resize((184, 184))
+        image = image.resize(IMAGE_SIZE)
         image = blackOrWhite(image)
 
         images[i] = image
@@ -39,7 +41,7 @@ def normalize(*images):
 
 
 def blackOrWhite(image):
-    gray_scale = image.convert('L')  # to black and white
+    gray_scale = image.convert('L')
 
     array = np.asarray(gray_scale).copy()  # convert to numpy array
     array[array < 128] = 0  # Darker colors go to black
