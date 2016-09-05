@@ -24,10 +24,8 @@ def main():
 	subtracted = pillow.getSubtractionsImage(im1, im2)
 	subtracted.save(os.path.join(here, 'subtracted.png'))
 
-
-
 	# TEST GET PRIORITY TRANSFORMS
-	priority_transforms = [trans.Transform(im1)]  # Start the list with a blank transform]
+	priority_transforms = [trans.Transform(im1)]  # Start the list with a blank transform
 
 	# If we don't already match, get list of transforms
 	if not pillow.imagesMatch(im1, im2):

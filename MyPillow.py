@@ -4,6 +4,7 @@ import numpy as np
 IMAGE_SIZE = (100, 100)
 MATCHED_IMAGE_THRESHOLD = 98
 
+
 def getSameImage(im1, im2):
 	return chops.invert(getChangedImage(im1, im2))
 
@@ -40,14 +41,30 @@ def rotate270(im):
 	return im.transpose(Image.ROTATE_270)
 
 
+# Adds im2 to im1 as black, returns result
+def addTo(im1, im2):
+	return chops.subtract(im1, im2)
+
+
+# Subtracts im2 from im1 as black, returns result
+def subtractFrom(im1, im2):
+	return chops.add(im1, im2)
+
+
 def imagesMatch(im1, im2):
 	return getImageMatchScore(im1, im2) > MATCHED_IMAGE_THRESHOLD
 
+
 # Given two images, returns percentage of matching pixels (0 - 100)
 def getImageMatchScore(im1, im2):
-	different_pixels = count(getChangedImage(im1, im2))
-	total_pixels = im1.size[0] * im1.size[1]
-	return (1 - (different_pixels / total_pixels)) * 100
+	return percent(getSameImage(im1, im2))
+
+
+# Returns the percentage of non-zero pixels in the image
+def percent(im):
+	total_pixels = im.size[0] * im.size[1]
+	return (count(im) / total_pixels) * 100
+
 
 # Returns the non-zero pixels in the image
 def count(im):

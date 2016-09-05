@@ -17,7 +17,6 @@ import os, sys
 
 
 class Agent:
-
 	# The default constructor for your Agent. Make sure to execute any
 	# processing necessary before your Agent starts solving problems here.
 	#
@@ -38,7 +37,7 @@ class Agent:
 	def Solve(self, problem):
 		self.printProblemDetails(problem)
 
-		horizontal_transforms, vertical_transforms = None, None
+		h_transforms, v_transforms = None, None
 
 		# Let's determine what horizontal and vertical transformations we have
 		try:
@@ -47,8 +46,8 @@ class Agent:
 			imC = self.loadImage(problem, 'C')
 			imA, imB, imC = pillow.normalize(imA, imB, imC)
 
-			horizontal_transforms = self.getPriorityTransforms(imA, imB)
-			vertical_transforms = self.getPriorityTransforms(imA, imC)
+			h_transforms = self.getPriorityTransforms(imA, imB)
+			v_transforms = self.getPriorityTransforms(imA, imC)
 
 		except IOError as e:
 			print('IO issue - probably could not load image')
@@ -58,25 +57,34 @@ class Agent:
 			print('Unknown Error: Unable to determine transformations')
 			return -1
 
-		# Apply Transforms to get expected answer
-		print('horizontal transforms:')
-		print(' ', horizontal_transforms)
-		print('vertical transforms')
-		print(' ', vertical_transforms)
+		# Choose between horizontal and vertical transforms
+		# Will choose the list that has the best match before additions and subtractions
+		transforms = None
+		transform_direction = None
+		image_to_transform = None
+		if h_transforms[0].score > v_transforms[0].score:
+			print('Choosing horizontal transforms')
+			transforms = h_transforms
+			transform_direction = 'H'
+			image_to_transform = imC
+		else:
+			print('Choosing vertical transforms')
+			transforms = v_transforms
+			transform_direction = 'V'
+			image_to_transform = imB
 
-		expectedIm1 = self.applyTransformations(imC, horizontal_transforms)
-		expectedIm2 = self.applyTransformations(imB, vertical_transforms)
+		# Apply Transforms to get expected answers
+		solutions = [transform.applyTo(image_to_transform) for transform in transforms]
+
+		if problem.name.endswith('05'): self.printSolutionInfo(image_to_transform, transforms, solutions)
 
 		# Test solutions for accuracy, returning the best one if it fits well enough
-		return self.findSolution(problem, [expectedIm1, expectedIm2])
+		return self.findSolution(problem, solutions)
 
-	# Given two images, returns a list of lists
-	# Each inner list is a list of transformations to turn im1 into im2
-	# Outer list contains the inners, ordered by priority - first most likely, last least likely
+	# Given two images, returns a list of Transforms that will turn im1 into im2
+	# List is ordered by how well the images matched before additions and subtractions were considered: best match first
 	def getPriorityTransforms(self, im1, im2):
-		priority_transforms = [
-			trans.Transform(im1)  # Start the list with a blank transform
-		]
+		priority_transforms = [trans.Transform(im1)]  # Start the list with a blank transform
 
 		# If we don't already match, get list of transforms
 		if not pillow.imagesMatch(im1, im2):
@@ -96,43 +104,47 @@ class Agent:
 
 		return priority_transforms
 
-
-	# Apply the provided transformations to the im, returning the resulting image
-	def applyTransformations(self, im, transforms):
-		for transform in transforms:
-			pass  # apply this particular transform
-
-		return im
-
 	# Given the problem and a list of expected solutions, tests the solutions against the
-	# provided answers in the problem to find the best match
-	def findSolution(self, problem, solutions):
+	# 	provided answers in the problem to find the best match
+	# Returns the number representing the chosen answer, the return for the Agent's Solve method
+	def findSolution(self, problem, solution_images):
 		try:
+			# Load answer images
 			im1 = self.loadImage(problem, '1')
 			im2 = self.loadImage(problem, '2')
 			im3 = self.loadImage(problem, '3')
 			im4 = self.loadImage(problem, '4')
 			im5 = self.loadImage(problem, '5')
 			im6 = self.loadImage(problem, '6')
-			im1, im2, im3, im4, im5, im6 = pillow.normalize(im1, im2, im3, im4, im5, im6)
+			answers = pillow.normalize(im1, im2, im3, im4, im5, im6)
 
-			answers = [im1, im2, im3, im4, im5, im6]
-			answer_scores = []
+			# Get the best match from the answers for each solution image
+			solutions = []
+			for solution_image in solution_images:
+				chosen_answer = 0
+				percent_match = 0
+				for i in range(len(answers)):
+					answer = answers[i]
 
-			# Compare each answer to the solutions, giving each answer a score
-			for a in range(len(answers)):
-				answer = answers[a]
-				total_answer_score = 0
-				for s in range(len(solutions)):
-					solution = solutions[s]
-					total_answer_score += pillow.getImageMatchScore(answer, solution)
+					match_score = pillow.getImageMatchScore(solution_image, answer)
+					if match_score > percent_match:
+						percent_match = match_score
+						chosen_answer = i+1
 
-				answer_scores.append(total_answer_score / len(solutions))
+				solutions.append(Solution(chosen_answer, percent_match))
 
-			print('here are our answer scores:', answer_scores)
-			correct_answer = answer_scores.index(max(answer_scores)) + 1
-			print('we think the correct answer is', correct_answer)
-			return correct_answer
+			# Pick the best solution (with the highest answer match percentage)
+			solutions.sort(key=lambda s: s.percent_match, reverse=True)
+			chosen_solution = solutions[0]
+
+			print('max score:', chosen_solution.percent_match)
+			print('we think the correct answer is', chosen_solution.answer)
+
+			if chosen_solution.percent_match < pillow.MATCHED_IMAGE_THRESHOLD:
+				print('No decent match. Giving up.')
+				return -1
+
+			return chosen_solution.answer
 
 		except IOError as e:
 			print('IO issue - probably could not load image')
@@ -147,6 +159,27 @@ class Agent:
 		print()
 		print('About to solve:', problem.name, '(' + problem.problemType + ')')
 
+	# Returns the image with the same name as the given key from the provided problem
 	def loadImage(self, problem, key):
 		filename = problem.figures[key].visualFilename
 		return pillow.Image.open(os.path.join(self.here, filename))
+
+	def printSolutionInfo(self, start_image, transforms, solutions):
+		start_image.save(os.path.join(self.here, 'testAgent', 'startImage.png'))
+
+		print('  Printing Solution Info:')
+		for i in range(len(transforms)):
+			transform = transforms[i]
+			solution = solutions[i]
+			print('   ', transform.static_transforms)
+			print('    Added:', transform.add_percent)
+			print('    Subtracted:', transform.subtract_percent)
+			print()
+			solution.save(os.path.join(self.here, 'testAgent', 'solution{0!s}.png'.format(i+1)))
+
+
+class Solution:
+
+	def __init__(self, answer, percent_match):
+		self.answer = answer
+		self.percent_match = percent_match
