@@ -12,11 +12,11 @@
 # import numpy
 
 import MyPillow as pillow
+import Transform as trans
 import os, sys
 
 
 class Agent:
-	MATCHED_IMAGE_THRESHOLD = 98
 
 	# The default constructor for your Agent. Make sure to execute any
 	# processing necessary before your Agent starts solving problems here.
@@ -47,8 +47,8 @@ class Agent:
 			imC = self.loadImage(problem, 'C')
 			imA, imB, imC = pillow.normalize(imA, imB, imC)
 
-			horizontal_transforms = self.determineTransformations(imA, imB)
-			vertical_transforms = self.determineTransformations(imA, imC)
+			horizontal_transforms = self.getPriorityTransforms(imA, imB)
+			vertical_transforms = self.getPriorityTransforms(imA, imC)
 
 		except IOError as e:
 			print('IO issue - probably could not load image')
@@ -70,15 +70,32 @@ class Agent:
 		# Test solutions for accuracy, returning the best one if it fits well enough
 		return self.findSolution(problem, [expectedIm1, expectedIm2])
 
-	# Given two images, returns an array of the steps to take to transform im1 into im2
-	def determineTransformations(self, im1, im2):
-		match_score = pillow.getImageMatchScore(im1, im2)
-		print('Match Score:', match_score)
-		if match_score > self.MATCHED_IMAGE_THRESHOLD:
-			print('  Images seem to match')
-			return []
-		else:
-			raise Exception('Giving Up')
+	# Given two images, returns a list of lists
+	# Each inner list is a list of transformations to turn im1 into im2
+	# Outer list contains the inners, ordered by priority - first most likely, last least likely
+	def getPriorityTransforms(self, im1, im2):
+		priority_transforms = [
+			trans.Transform(im1)  # Start the list with a blank transform
+		]
+
+		# If we don't already match, get list of transforms
+		if not pillow.imagesMatch(im1, im2):
+			# For each static transform, add a Transform to the list
+			for stat_trans in trans.STATIC_TRANSFORMS:
+				priority_transforms.append(trans.Transform(im1).addStaticTransform(stat_trans))
+
+		# Order our list by how well each one matches im2
+		for transform in priority_transforms:
+			transform.score = pillow.getImageMatchScore(transform.current_image, im2)
+		priority_transforms.sort(key=lambda t: t.score, reverse=True)
+
+		# Put in the add and subtract images
+		for transform in priority_transforms:
+			transform.setAdditions(im2)
+			transform.setSubtractions(im2)
+
+		return priority_transforms
+
 
 	# Apply the provided transformations to the im, returning the resulting image
 	def applyTransformations(self, im, transforms):
