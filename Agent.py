@@ -60,23 +60,20 @@ class Agent:
 		# Choose between horizontal and vertical transforms
 		# Will choose the list that has the best match before additions and subtractions
 		transforms = None
-		transform_direction = None
 		image_to_transform = None
 		if h_transforms[0].score > v_transforms[0].score:
 			print('Choosing horizontal transforms')
 			transforms = h_transforms
-			transform_direction = 'H'
 			image_to_transform = imC
 		else:
 			print('Choosing vertical transforms')
 			transforms = v_transforms
-			transform_direction = 'V'
 			image_to_transform = imB
 
 		# Apply Transforms to get expected answers
 		solutions = [transform.applyTo(image_to_transform) for transform in transforms]
 
-		if problem.name.endswith('05'): self.printSolutionInfo(image_to_transform, transforms, solutions)
+		if problem.name.endswith('10'): self.printSolutionInfo(image_to_transform, transforms, solutions)
 
 		# Test solutions for accuracy, returning the best one if it fits well enough
 		return self.findSolution(problem, solutions)
@@ -99,8 +96,9 @@ class Agent:
 
 		# Put in the add and subtract images
 		for transform in priority_transforms:
-			transform.setAdditions(im2)
-			transform.setSubtractions(im2)
+			if not pillow.imagesMatch(transform.current_image, im2):
+				transform.setAdditions(im2)
+				transform.setSubtractions(im2)
 
 		return priority_transforms
 
@@ -126,19 +124,20 @@ class Agent:
 				for i in range(len(answers)):
 					answer = answers[i]
 
-					match_score = pillow.getImageMatchScore(solution_image, answer)
+					match_score = pillow.getImageMatchScore(solution_image, answer, fuzzy=True)
 					if match_score > percent_match:
 						percent_match = match_score
 						chosen_answer = i+1
 
 				solutions.append(Solution(chosen_answer, percent_match))
 
+			print('Solution Scores:', [str(s) for s in solutions])
+
 			# Pick the best solution (with the highest answer match percentage)
 			solutions.sort(key=lambda s: s.percent_match, reverse=True)
 			chosen_solution = solutions[0]
 
-			print('max score:', chosen_solution.percent_match)
-			print('we think the correct answer is', chosen_solution.answer)
+			print('Chosen Solution is ', chosen_solution)
 
 			if chosen_solution.percent_match < pillow.MATCHED_IMAGE_THRESHOLD:
 				print('No decent match. Giving up.')
@@ -157,6 +156,7 @@ class Agent:
 
 	def printProblemDetails(self, problem):
 		print()
+		print()
 		print('About to solve:', problem.name, '(' + problem.problemType + ')')
 
 	# Returns the image with the same name as the given key from the provided problem
@@ -164,13 +164,13 @@ class Agent:
 		filename = problem.figures[key].visualFilename
 		return pillow.Image.open(os.path.join(self.here, filename))
 
-	def printSolutionInfo(self, start_image, transforms, solutions):
+	def printSolutionInfo(self, start_image, transforms, solution_images):
 		start_image.save(os.path.join(self.here, 'testAgent', 'startImage.png'))
 
 		print('  Printing Solution Info:')
 		for i in range(len(transforms)):
 			transform = transforms[i]
-			solution = solutions[i]
+			solution = solution_images[i]
 			print('   ', transform.static_transforms)
 			print('    Added:', transform.add_percent)
 			print('    Subtracted:', transform.subtract_percent)
@@ -183,3 +183,6 @@ class Solution:
 	def __init__(self, answer, percent_match):
 		self.answer = answer
 		self.percent_match = percent_match
+
+	def __str__(self):
+		return '{0!s}: {1!s}%'.format(self.answer, self.percent_match)

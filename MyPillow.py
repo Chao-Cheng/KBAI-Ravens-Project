@@ -1,8 +1,10 @@
 from PIL import Image, ImageChops as chops
 import numpy as np
 
-IMAGE_SIZE = (100, 100)
-MATCHED_IMAGE_THRESHOLD = 98
+IMAGE_SIDE = 180
+IMAGE_SIZE = (IMAGE_SIDE, IMAGE_SIDE)
+MATCHED_IMAGE_THRESHOLD = 99
+FUZZY_DIRECTION_IMPROVE_LIMIT = IMAGE_SIDE // 20  # won't offset image more than 3 pixels when matching
 
 
 def getSameImage(im1, im2):
@@ -52,11 +54,62 @@ def subtractFrom(im1, im2):
 
 
 def imagesMatch(im1, im2):
-	return getImageMatchScore(im1, im2) > MATCHED_IMAGE_THRESHOLD
+	return getImageMatchScore(im1, im2, fuzzy=True) > MATCHED_IMAGE_THRESHOLD
+
+
+# returns [im1, im2] as optimally matching images offset by a few pixels
+def fuzzyMatch(im1, im2):
+	up, down, left, right = True, True, True, True
+
+	improvements = 0
+	max_score = getImageMatchScore(im1, im2)
+	while True:
+		offset_image = None
+		search_direction = None
+
+		# offset the image
+		if up:
+			offset_image = chops.offset(im2, 0, -1)
+			search_direction = 'UP'
+		elif down:
+			offset_image = chops.offset(im2, 0, 1)
+			search_direction = 'DOWN'
+		elif left:
+			offset_image = chops.offset(im2, -1, 0)
+			search_direction = 'LEFT'
+		elif right:
+			offset_image = chops.offset(im2, 1, 0)
+			search_direction = 'RIGHT'
+		else:
+			break
+
+		# test the offset image to see if it's better
+		score = getImageMatchScore(im1, offset_image)
+		if score > max_score and improvements <= FUZZY_DIRECTION_IMPROVE_LIMIT:  # if so, update im2
+			im2 = offset_image
+			max_score = score
+			improvements += 1
+		# print('Improved', search_direction)
+		else:  # if not, turn off whatever step we just took
+			# print('Failed to improve', search_direction)
+			if search_direction == 'UP':
+				up = False
+			elif search_direction == 'DOWN':
+				down = False
+			elif search_direction == 'LEFT':
+				left = False
+			elif search_direction == 'RIGHT':
+				right = False
+
+			improvements = 0
+
+	return [im1, im2]
 
 
 # Given two images, returns percentage of matching pixels (0 - 100)
-def getImageMatchScore(im1, im2):
+# Note: Offsets the images a few pixels so they optimally match before returning score
+def getImageMatchScore(im1, im2, fuzzy=False):
+	if fuzzy: im1, im2 = fuzzyMatch(im1, im2)
 	return percent(getSameImage(im1, im2))
 
 

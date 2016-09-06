@@ -51,7 +51,9 @@ class Transform:
 			im = applyStaticTransform(im, stat_trans)
 
 		# Apply additions and subtractions
-		im = pillow.addTo(im, self.add_image)
-		im = pillow.subtractFrom(im, self.subtract_image)
+		if self.add_image is not None:
+			im = pillow.addTo(im, self.add_image)
+		if self.subtract_image is not None:
+			im = pillow.subtractFrom(im, self.subtract_image)
 
 		return im

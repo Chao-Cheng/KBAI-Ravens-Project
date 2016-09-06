@@ -7,10 +7,15 @@ def main():
 	here = sys.path[0]
 
 	im1 = pillow.Image.open('A.png')
-	im2 = pillow.Image.open('B.png')
+	im2 = pillow.Image.open('C.png')
 	im1, im2 = pillow.normalize(im1, im2)
 
+	# im1 = pillow.chops.offset(im1, 0, 10)
+
+	im1, im2 = pillow.fuzzyMatch(im1, im2)
+
 	print(pillow.getImageMatchScore(im1, im2))
+	print(pillow.getImageMatchScore(im1, im2, fuzzy=True))
 
 	changed = pillow.getChangedImage(im1, im2)
 	changed.save(os.path.join(here, 'changed.png'))
