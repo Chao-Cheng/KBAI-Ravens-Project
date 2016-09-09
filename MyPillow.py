@@ -4,9 +4,12 @@ import numpy as np
 IMAGE_SIDE = 180
 IMAGE_SIZE = (IMAGE_SIDE, IMAGE_SIDE)
 MATCHED_IMAGE_THRESHOLD = 99
-FUZZY_DIRECTION_IMPROVE_LIMIT = IMAGE_SIDE // 20  # won't offset image more than 3 pixels when matching
+BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very black
+FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
+FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
 
 
+# ADD/SUB IMAGES
 def getSameImage(im1, im2):
 	return chops.invert(getChangedImage(im1, im2))
 
@@ -21,8 +24,9 @@ def getAdditionsImage(im1, im2):
 
 def getSubtractionsImage(im1, im2):
 	return chops.subtract(im2, im1)
+# END ADD/SUB IMAGES
 
-
+# STATIC TRANSFORMATIONS
 def reflectHorizontal(im):
 	return im.transpose(Image.FLIP_LEFT_RIGHT)
 
@@ -43,6 +47,23 @@ def rotate270(im):
 	return im.transpose(Image.ROTATE_270)
 
 
+def rotate45(im):
+	return im.rotate(45)
+
+
+def rotate135(im):
+	return im.rotate(135)
+
+
+def rotate225(im):
+	return im.rotate(225)
+
+
+def rotate315(im):
+	return im.rotate(315)
+# END STATIC TRANSFORMATIONS
+
+
 # Adds im2 to im1 as black, returns result
 def addTo(im1, im2):
 	return chops.subtract(im1, im2)
@@ -53,8 +74,8 @@ def subtractFrom(im1, im2):
 	return chops.add(im1, im2)
 
 
-def imagesMatch(im1, im2):
-	return getImageMatchScore(im1, im2, fuzzy=True) > MATCHED_IMAGE_THRESHOLD
+def imagesMatch(im1, im2, fuzzy=True):
+	return getImageMatchScore(im1, im2, fuzzy) > MATCHED_IMAGE_THRESHOLD
 
 
 # returns [im1, im2] as optimally matching images offset by a few pixels
@@ -85,7 +106,7 @@ def fuzzyMatch(im1, im2):
 
 		# test the offset image to see if it's better
 		score = getImageMatchScore(im1, offset_image)
-		if score > max_score and improvements <= FUZZY_DIRECTION_IMPROVE_LIMIT:  # if so, update im2
+		if score > max_score and improvements <= FUZZY_MATCH_RESOLUTION:  # if so, update im2
 			im2 = offset_image
 			max_score = score
 			improvements += 1
@@ -143,12 +164,18 @@ def blackOrWhite(image):
 
 	array = np.asarray(gray_scale).copy()  # convert to numpy array
 	# Color values are not evenly divided on purpose to emphasize white as a background color
-	array[array < 200] = 0  # Darker colors go to black
-	array[array >= 200] = 255  # Lighter colors go to white
+	array[array < BLACK_WHITE_CUTOFF] = 0  # Darker colors go to black
+	array[array >= BLACK_WHITE_CUTOFF] = 255  # Lighter colors go to white
 
 	return Image.fromarray(array)
 
 
-def printColors(*images):
-	for image in images:
-		print(image.getcolors())
+# Returns a "blurred" version of the image that is the image smeared around by a few pixels
+def fuzzify(im):
+	inv = chops.invert(im)
+	# Generate a list of images that are our offsets from the original
+	for i in range(-FUZZIFICATION_LIMIT, FUZZIFICATION_LIMIT + 1):
+		for j in range(-FUZZIFICATION_LIMIT, FUZZIFICATION_LIMIT + 1):
+			inv = chops.add(inv, chops.offset(inv, i, j))  # add the offset image
+
+	return chops.invert(inv)

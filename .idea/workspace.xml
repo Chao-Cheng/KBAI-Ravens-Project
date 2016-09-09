@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Problems/Basic Problems B/TestProblem.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Problems/TestProblemSetList.txt" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/1.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/2.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/3.png" afterPath="" />
@@ -17,14 +15,10 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/changed.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/same.png" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/subtracted.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agent.py" afterPath="$PROJECT_DIR$/Agent.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AgentAnswers.csv" afterPath="$PROJECT_DIR$/AgentAnswers.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyPillow.py" afterPath="$PROJECT_DIR$/MyPillow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProblemResults.csv" afterPath="$PROJECT_DIR$/ProblemResults.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProblemSet.py" afterPath="$PROJECT_DIR$/ProblemSet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RavensGrader.py" afterPath="$PROJECT_DIR$/RavensGrader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SetResults.csv" afterPath="$PROJECT_DIR$/SetResults.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Transform.py" afterPath="$PROJECT_DIR$/Transform.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.py" afterPath="$PROJECT_DIR$/test/test.py" />
     </list>
@@ -40,8 +34,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project-Code-Python$Pillow.coverage" NAME="Pillow Coverage Results" MODIFIED="1472510339476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1473133140478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1473133268835" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1473381157678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1473379239481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -55,8 +49,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="340">
+              <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -64,68 +58,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="priTrans1.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/priTrans1.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="priTrans1_added.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/priTrans1_added.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="priTrans1_subtracted.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/priTrans1_subtracted.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="changed.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/changed.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="added.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/added.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="subtracted.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/subtracted.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A.png" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/A.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="C.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/C.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProblemResults.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProblemResults.csv">
+      <file leaf-file-name="Agent.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transform.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Transform.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="663">
+              <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyPillow.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/MyPillow.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="590">
+              <caret line="180" column="9" selection-start-line="180" selection-start-column="9" selection-end-line="180" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+                <element signature="e#461#507#0" expanded="false" />
+                <element signature="e#542#575#0" expanded="false" />
+                <element signature="e#683#714#0" expanded="false" />
+                <element signature="e#790#832#0" expanded="false" />
+                <element signature="e#861#903#0" expanded="false" />
+                <element signature="e#925#961#0" expanded="false" />
+                <element signature="e#984#1021#0" expanded="false" />
+                <element signature="e#1352#1383#0" expanded="false" />
+                <element signature="e#1465#1491#0" expanded="false" />
+                <element signature="e#1908#1974#0" expanded="false" />
+                <element signature="e#1991#2058#0" expanded="false" />
+                <element signature="e#2075#2143#0" expanded="false" />
+                <element signature="e#2161#2229#0" expanded="false" />
+                <element signature="e#2435#2495#0" expanded="false" />
+                <element signature="e#2594#2869#0" expanded="false" />
+                <element signature="e#3095#3176#0" expanded="false" />
+                <element signature="e#3254#3333#0" expanded="false" />
+                <element signature="e#3395#3422#0" expanded="false" />
+                <element signature="e#3527#3701#0" expanded="false" />
+                <element signature="e#3581#3685#0" expanded="false" />
+                <element signature="e#3730#4090#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,12 +135,12 @@
         <option value="$PROJECT_DIR$/RavensProject.py" />
         <option value="$PROJECT_DIR$/ProblemSet.py" />
         <option value="$PROJECT_DIR$/RavensGrader.py" />
+        <option value="$PROJECT_DIR$/ProblemResults.csv" />
+        <option value="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
+        <option value="$PROJECT_DIR$/SetResults.csv" />
         <option value="$PROJECT_DIR$/Transform.py" />
         <option value="$PROJECT_DIR$/Agent.py" />
         <option value="$PROJECT_DIR$/MyPillow.py" />
-        <option value="$PROJECT_DIR$/SetResults.csv" />
-        <option value="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
-        <option value="$PROJECT_DIR$/ProblemResults.csv" />
         <option value="$PROJECT_DIR$/test/test.py" />
       </list>
     </option>
@@ -188,7 +169,7 @@
         </expanded-state>
         <selected-state>
           <State>
-            <id>PyCompatibilityInspection</id>
+            <id>PyPep8Inspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -219,6 +200,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -251,9 +233,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project-Code-Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project-Code-Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -266,18 +261,18 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\test" />
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Basic Problems B\Basic Problem B-08" />
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\testAgent" />
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems" />
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Challenge Problems E" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\test" />
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems" />
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Challenge Problems E" />
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Challenge Problems D" />
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Challenge Problems C" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.RavensProject">
+  <component name="RunManager" selected="Python.test">
     <configuration default="false" name="RavensProject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -528,8 +523,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.RavensProject" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.RavensProject" />
       </list>
     </recent_temporary>
   </component>
@@ -582,18 +577,24 @@
       <option name="project" value="LOCAL" />
       <updated>1473108307317</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Just some small performance tweaks.">
+      <created>1473133683814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1473133683814</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1612" height="867" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17332475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="599" y="47" width="398" height="766" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17912371" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="599" y="47" width="398" height="766" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3234536" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -606,6 +607,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -646,76 +648,22 @@
     <MESSAGE value="Got enough in place to solve problems without transforms now.&#10;Need to implement method to determine transforms.&#10;Need to implement method to apply transforms for solutions." />
     <MESSAGE value="Added Transform.py and built method to return transform options." />
     <MESSAGE value="Finished version 1 code for capturing transforms, applying transforms to generate solutions, and testing solutions.&#10;Also added logic to choose between horizontal and vertical transforms based on ease." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished version 1 code for capturing transforms, applying transforms to generate solutions, and testing solutions.&#10;Also added logic to choose between horizontal and vertical transforms based on ease." />
+    <MESSAGE value="Just some small performance tweaks." />
+    <option name="LAST_COMMIT_MESSAGE" value="Just some small performance tweaks." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test/test.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/result.png" />
-    <entry file="file://$PROJECT_DIR$/AgentAnswers.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/ProblemList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RavensProject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/Basic Problem B-08/Basic Problem B-08.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RavensFigure.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/ProblemList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/same.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/priTrans5.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/priTrans6.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -761,21 +709,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/A_Added.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/A_Subtracted.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/A_Added.png" />
+    <entry file="file://$PROJECT_DIR$/test/A_Subtracted.png" />
     <entry file="file://$PROJECT_DIR$/RavensProblem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -784,16 +723,8 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/solution1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/solution2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test/solution1.png" />
+    <entry file="file://$PROJECT_DIR$/test/solution2.png" />
     <entry file="file://$PROJECT_DIR$/testAgent/solution3.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -819,19 +750,11 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/TestProblemSetList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/TestProblemSetList.txt" />
     <entry file="file://$PROJECT_DIR$/RavensGrader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -839,7 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="40" column="77" selection-start-line="40" selection-start-column="77" selection-end-line="40" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,67 +770,71 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testAgent/solution1.png">
+    <entry file="file://$PROJECT_DIR$/test/priTrans1_subtracted.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Transform.py">
+    <entry file="file://$PROJECT_DIR$/test/priTrans1_added.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/C.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/4.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/5.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/B.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/Challenge Problem B-06.PNG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/A.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/priTrans1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="573">
-          <caret line="56" column="12" selection-start-line="56" selection-start-column="12" selection-end-line="56" selection-end-column="12" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="75" column="36" selection-start-line="75" selection-start-column="36" selection-end-line="75" selection-end-column="36" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#431#456#0" expanded="true" />
-            <element signature="e#514#580#0" expanded="false" />
-            <element signature="e#3061#3901#0" expanded="false" />
-            <element signature="e#4196#5615#0" expanded="false" />
-            <element signature="e#5660#5751#0" expanded="false" />
-            <element signature="e#5874#5982#0" expanded="false" />
-            <element signature="e#6058#6511#0" expanded="false" />
-            <element signature="e#6532#6720#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyPillow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
-          <folding>
-            <element signature="e#282#328#0" expanded="false" />
-            <element signature="e#363#396#0" expanded="false" />
-            <element signature="e#433#464#0" expanded="false" />
-            <element signature="e#504#535#0" expanded="false" />
-            <element signature="e#566#608#0" expanded="false" />
-            <element signature="e#637#679#0" expanded="false" />
-            <element signature="e#701#737#0" expanded="false" />
-            <element signature="e#760#797#0" expanded="false" />
-            <element signature="e#820#857#0" expanded="false" />
-            <element signature="e#925#956#0" expanded="false" />
-            <element signature="e#1038#1064#0" expanded="false" />
-            <element signature="e#1474#1540#0" expanded="false" />
-            <element signature="e#1557#1624#0" expanded="false" />
-            <element signature="e#1641#1709#0" expanded="false" />
-            <element signature="e#1727#1795#0" expanded="false" />
-            <element signature="e#2167#2442#0" expanded="false" />
-            <element signature="e#2465#2532#0" expanded="false" />
-            <element signature="e#2668#2749#0" expanded="false" />
-            <element signature="e#2827#2906#0" expanded="false" />
-            <element signature="e#2968#2995#0" expanded="false" />
-            <element signature="e#3100#3274#0" expanded="false" />
-            <element signature="e#3154#3258#0" expanded="false" />
-            <element signature="e#3303#3633#0" expanded="false" />
-            <element signature="e#3663#3710#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -916,14 +842,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -936,19 +854,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/priTrans1_subtracted.png">
+    <entry file="file://$PROJECT_DIR$/testAgent/solution1.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/Problems/Basic Problems B/Basic Problem B-12/1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/same.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/changed.png">
@@ -966,24 +884,71 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/priTrans1_added.png">
+    <entry file="file://$PROJECT_DIR$/test/Basic Problem B-12.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/priTrans1.png">
+    <entry file="file://$PROJECT_DIR$/Transform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyPillow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="180" column="9" selection-start-line="180" selection-start-column="9" selection-end-line="180" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#461#507#0" expanded="false" />
+            <element signature="e#542#575#0" expanded="false" />
+            <element signature="e#683#714#0" expanded="false" />
+            <element signature="e#790#832#0" expanded="false" />
+            <element signature="e#861#903#0" expanded="false" />
+            <element signature="e#925#961#0" expanded="false" />
+            <element signature="e#984#1021#0" expanded="false" />
+            <element signature="e#1352#1383#0" expanded="false" />
+            <element signature="e#1465#1491#0" expanded="false" />
+            <element signature="e#1908#1974#0" expanded="false" />
+            <element signature="e#1991#2058#0" expanded="false" />
+            <element signature="e#2075#2143#0" expanded="false" />
+            <element signature="e#2161#2229#0" expanded="false" />
+            <element signature="e#2435#2495#0" expanded="false" />
+            <element signature="e#2594#2869#0" expanded="false" />
+            <element signature="e#3095#3176#0" expanded="false" />
+            <element signature="e#3254#3333#0" expanded="false" />
+            <element signature="e#3395#3422#0" expanded="false" />
+            <element signature="e#3527#3701#0" expanded="false" />
+            <element signature="e#3581#3685#0" expanded="false" />
+            <element signature="e#3730#4090#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/C.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/test/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/A.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/Agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
