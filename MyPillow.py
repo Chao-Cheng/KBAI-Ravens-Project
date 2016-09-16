@@ -1,29 +1,30 @@
-from PIL import Image, ImageChops as chops
+from PIL import Image, ImageChops as Chops
 import numpy as np
 
 IMAGE_SIDE = 180
 IMAGE_SIZE = (IMAGE_SIDE, IMAGE_SIDE)
-MATCHED_IMAGE_THRESHOLD = 99
+MATCHED_IMAGE_THRESHOLD = 98.5
 BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very black
 FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
 FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
 
+corner_reduce = Image.open('corner-reduce.png')
 
 # ADD/SUB IMAGES
 def getSameImage(im1, im2):
-	return chops.invert(getChangedImage(im1, im2))
+	return Chops.invert(getChangedImage(im1, im2))
 
 
 def getChangedImage(im1, im2):
-	return chops.difference(im1, im2)
+	return Chops.difference(im1, im2)
 
 
 def getAdditionsImage(im1, im2):
-	return chops.subtract(im1, im2)
+	return Chops.subtract(fuzzify(im1), im2)
 
 
 def getSubtractionsImage(im1, im2):
-	return chops.subtract(im2, im1)
+	return Chops.subtract(fuzzify(im2), im1)
 # END ADD/SUB IMAGES
 
 # STATIC TRANSFORMATIONS
@@ -48,30 +49,30 @@ def rotate270(im):
 
 
 def rotate45(im):
-	return im.rotate(45)
+	return Chops.add(im.rotate(45, resample=Image.BICUBIC), corner_reduce)
 
 
 def rotate135(im):
-	return im.rotate(135)
+	return Chops.add(im.rotate(135, resample=Image.BICUBIC), corner_reduce)
 
 
 def rotate225(im):
-	return im.rotate(225)
+	return Chops.add(im.rotate(225, resample=Image.BICUBIC), corner_reduce)
 
 
 def rotate315(im):
-	return im.rotate(315)
+	return Chops.add(im.rotate(315, resample=Image.BICUBIC), corner_reduce)
 # END STATIC TRANSFORMATIONS
 
 
 # Adds im2 to im1 as black, returns result
 def addTo(im1, im2):
-	return chops.subtract(im1, im2)
+	return Chops.subtract(im1, im2)
 
 
 # Subtracts im2 from im1 as black, returns result
 def subtractFrom(im1, im2):
-	return chops.add(im1, im2)
+	return Chops.add(im1, im2)
 
 
 def imagesMatch(im1, im2, fuzzy=True):
@@ -90,16 +91,16 @@ def fuzzyMatch(im1, im2):
 
 		# offset the image
 		if up:
-			offset_image = chops.offset(im2, 0, -1)
+			offset_image = Chops.offset(im2, 0, -1)
 			search_direction = 'UP'
 		elif down:
-			offset_image = chops.offset(im2, 0, 1)
+			offset_image = Chops.offset(im2, 0, 1)
 			search_direction = 'DOWN'
 		elif left:
-			offset_image = chops.offset(im2, -1, 0)
+			offset_image = Chops.offset(im2, -1, 0)
 			search_direction = 'LEFT'
 		elif right:
-			offset_image = chops.offset(im2, 1, 0)
+			offset_image = Chops.offset(im2, 1, 0)
 			search_direction = 'RIGHT'
 		else:
 			break
@@ -171,11 +172,12 @@ def blackOrWhite(image):
 
 
 # Returns a "blurred" version of the image that is the image smeared around by a few pixels
+# Used when calculating additions and subtractions to avoid slivers of mis-aligned images
 def fuzzify(im):
-	inv = chops.invert(im)
+	inv = Chops.invert(im)
 	# Generate a list of images that are our offsets from the original
 	for i in range(-FUZZIFICATION_LIMIT, FUZZIFICATION_LIMIT + 1):
 		for j in range(-FUZZIFICATION_LIMIT, FUZZIFICATION_LIMIT + 1):
-			inv = chops.add(inv, chops.offset(inv, i, j))  # add the offset image
+			inv = Chops.add(inv, Chops.offset(inv, i, j))  # add the offset image
 
-	return chops.invert(inv)
+	return Chops.invert(inv)

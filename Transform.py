@@ -1,4 +1,4 @@
-import MyPillow as pillow
+import MyPillow as Pillow
 
 class StaticTransform:
 	def __init__(self, type, order):
@@ -21,23 +21,23 @@ STATIC_TRANSFORMS = [
 # Applies the static transform to the imgage, returning the resultant image
 def applyStaticTransform(im, static_transform):
 	if static_transform.type == 'REFLECT_HORIZONTAL':
-		return pillow.reflectHorizontal(im)
+		return Pillow.reflectHorizontal(im)
 	elif static_transform.type == 'REFLECT_VERTICAL':
-		return pillow.reflectVertical(im)
+		return Pillow.reflectVertical(im)
 	elif static_transform.type == 'ROTATE_90':
-		return pillow.rotate90(im)
+		return Pillow.rotate90(im)
 	elif static_transform.type == 'ROTATE_180':
-		return pillow.rotate180(im)
+		return Pillow.rotate180(im)
 	elif static_transform.type == 'ROTATE_270':
-		return pillow.rotate270(im)
+		return Pillow.rotate270(im)
 	elif static_transform.type == 'ROTATE_45':
-		return pillow.rotate45(im)
+		return Pillow.rotate45(im)
 	elif static_transform.type == 'ROTATE_135':
-		return pillow.rotate135(im)
+		return Pillow.rotate135(im)
 	elif static_transform.type == 'ROTATE_225':
-		return pillow.rotate225(im)
+		return Pillow.rotate225(im)
 	elif static_transform.type == 'ROTATE_315':
-		return pillow.rotate315(im)
+		return Pillow.rotate315(im)
 	else:
 		print('Unrecognized transform:', static_transform.type, 'Image unchanged')
 		return im
@@ -61,13 +61,13 @@ class Transform:
 
 	# Sets the addition info needed to reach the image provided
 	def setAdditions(self, im):
-		self.add_image = pillow.getAdditionsImage(self.current_image, im)
-		self.add_percent = pillow.percent(self.add_image)
+		self.add_image = Pillow.getAdditionsImage(self.current_image, im)
+		self.add_percent = Pillow.percent(self.add_image)
 
 	# Sets the subtraction info needed to reach the image provided
 	def setSubtractions(self, im):
-		self.subtract_image = pillow.getSubtractionsImage(self.current_image, im)
-		self.subtract_percent = pillow.percent(self.subtract_image)
+		self.subtract_image = Pillow.getSubtractionsImage(self.current_image, im)
+		self.subtract_percent = Pillow.percent(self.subtract_image)
 
 	# Applies all the current transformations in this Transform to the provided image
 	# Returns the resultant image after all transformations
@@ -78,8 +78,8 @@ class Transform:
 
 		# Apply additions and subtractions
 		if self.add_image is not None:
-			im = pillow.addTo(im, self.add_image)
+			im = Pillow.addTo(im, self.add_image)
 		if self.subtract_image is not None:
-			im = pillow.subtractFrom(im, self.subtract_image)
+			im = Pillow.subtractFrom(im, self.subtract_image)
 
 		return im
