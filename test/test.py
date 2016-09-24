@@ -8,55 +8,33 @@ import sys
 def main():
 	here = sys.path[0]
 
-	im1 = Image.open('A.png')
-	im2 = Image.open('B.png')
-	im1, im2 = Pillow.normalize(im1, im2)
+	imA = Image.open('A.png')
+	imB = Image.open('B.png')
+	imC = Image.open('C.png')
+	im1 = Image.open('1.png')
+	im2 = Image.open('2.png')
+	im3 = Image.open('3.png')
+	im4 = Image.open('4.png')
+	im5 = Image.open('5.png')
+	im6 = Image.open('6.png')
+	imA, imB, imC, im1, im2, im3, im4, im5, im6 = Pillow.normalize(imA, imB, imC, im1, im2, im3, im4, im5, im6)
 
-	print(Pillow.getImageMatchScore(im1, im2))
-	print(Pillow.getImageMatchScore(im1, im2, fuzzy=True))
+	ans_im = im5
 
-	changed = Pillow.getChangedImage(im1, im2)
-	changed.save(os.path.join(here, 'changed.png'))
+	changed_hor = Pillow.getChangedImage(imA, imB)
+	changed_hor.save(os.path.join(here, 'changed_hor.png'))
 
-	same = Pillow.getSameImage(im1, im2)
-	same.save(os.path.join(here, 'same.png'))
+	changed_vert = Pillow.getChangedImage(imA, imC)
+	changed_vert.save(os.path.join(here, 'changed_vert.png'))
 
-	added = Pillow.getAdditionsImage(im1, im2)
-	added.save(os.path.join(here, 'added.png'))
+	changed_B_ans = Pillow.getChangedImage(imB, ans_im)
+	changed_B_ans.save(os.path.join(here, 'changed_B_ans.png'))
 
-	subtracted = Pillow.getSubtractionsImage(im1, im2)
-	subtracted.save(os.path.join(here, 'subtracted.png'))
+	changed_C_ans = Pillow.getChangedImage(imC, ans_im)
+	changed_C_ans.save(os.path.join(here, 'changed_C_ans.png'))
 
-	# TEST GET PRIORITY TRANSFORMS
-	# priority_transforms = [trans.Transform(im1)]  # Start the list with a blank transform
-	#
-	# # If we don't already match, get list of transforms
-	# if not pillow.imagesMatch(im1, im2):
-	# 	# For each static transform, add a Transform to the list
-	# 	for stat_trans in trans.STATIC_TRANSFORMS:
-	# 		priority_transforms.append(trans.Transform(im1).addStaticTransform(stat_trans))
-	#
-	# # Order our list by how well each one matches im2
-	# for transform in priority_transforms:
-	# 	transform.score = pillow.getImageMatchScore(transform.current_image, im2)
-	# priority_transforms.sort(key=lambda t: t.score, reverse=True)
-	#
-	# # Put in the add and subtract images
-	# for transform in priority_transforms:
-	# 	transform.setAdditions(im2)
-	# 	transform.setSubtractions(im2)
-	#
-	# count = 0
-	# for transform in priority_transforms:
-	# 	count += 1
-	# 	name = 'priTrans' + str(count)
-	# 	print(name, transform.score, transform.static_transforms)
-	# 	transform.current_image.save(os.path.join(here, name + '.png'))
-	# 	transform.add_image.save(os.path.join(here, name + '_added.png'))
-	# 	transform.subtract_image.save(os.path.join(here, name + '_subtracted.png'))
-
-	# END TEST GET PRIORITY TRANSFORMS
-
+	print('Best Horizontal Socre:', Pillow.getImageMatchScore(changed_hor, changed_C_ans))
+	print('Best Vertical Socre:', Pillow.getImageMatchScore(changed_vert, changed_B_ans))
 
 if __name__ == "__main__":
 	main()
