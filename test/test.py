@@ -10,21 +10,10 @@ def main():
 
 	im1 = Image.open('A.png')
 	im2 = Image.open('B.png')
-	corner_reduce = Chops.invert(Image.open('cornerReduce.png'))
-	im1, im2, corner_reduce = Pillow.normalize(im1, im2, corner_reduce)
-
-	# im1 = pillow.chops.offset(im1, 0, 10)
-
-	# im1, im2 = pillow.fuzzyMatch(im1, im2)
+	im1, im2 = Pillow.normalize(im1, im2)
 
 	print(Pillow.getImageMatchScore(im1, im2))
 	print(Pillow.getImageMatchScore(im1, im2, fuzzy=True))
-
-	corner_reduce.save(os.path.join(here, 'corner-reduce.png'))
-
-	test = im1.rotate(45, resample=Image.BICUBIC)
-	test = Chops.add(test, corner_reduce)
-	test.save(os.path.join(here, 'test.png'))
 
 	changed = Pillow.getChangedImage(im1, im2)
 	changed.save(os.path.join(here, 'changed.png'))

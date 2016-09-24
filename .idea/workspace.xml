@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="Added logic to solve problem iteratively so we don't try everything all the time.&#10;Also added a fuzzify method to MyPillow that returns a &quot;blurred&quot; version of the image.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/corner-reduce.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/submitResults.txt" />
+    <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="Small updates to test.py">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/B.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/C.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/added.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/changed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/same.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/subtracted.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.py" afterPath="$PROJECT_DIR$/test/test.py" />
     </list>
     <ignored path="Project-Code-Python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,7 +30,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project-Code-Python$Pillow.coverage" NAME="Pillow Coverage Results" MODIFIED="1472510339476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1473625264758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1474751347234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1474750940325" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -41,32 +52,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="submitResults.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/submitResults.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetResults.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SetResults.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="272">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPillow.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MyPillow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MyPillow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="63" column="75" selection-start-line="63" selection-start-column="75" selection-end-line="63" selection-end-column="75" />
+            <state relative-caret-position="187">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
                 <element signature="e#511#557#0" expanded="false" />
@@ -170,14 +163,14 @@
         <option value="$PROJECT_DIR$/RavensGrader.py" />
         <option value="$PROJECT_DIR$/ProblemResults.csv" />
         <option value="$PROJECT_DIR$/Transform.py" />
-        <option value="$PROJECT_DIR$/test/test.py" />
-        <option value="$PROJECT_DIR$/MyPillow.py" />
         <option value="$PROJECT_DIR$/SetResults.csv" />
         <option value="$PROJECT_DIR$/language.txt" />
         <option value="$PROJECT_DIR$/submitResults.txt" />
         <option value="$PROJECT_DIR$/Agent.py" />
         <option value="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test/test.py" />
+        <option value="$PROJECT_DIR$/MyPillow.py" />
       </list>
     </option>
   </component>
@@ -257,6 +250,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project-Code-Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Project-Code-Python" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -271,18 +278,18 @@
     <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\test" />
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Basic Problems B\Basic Problem B-08" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\testAgent" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.RavensProject">
+  <component name="RunManager" selected="Python.test">
     <configuration default="false" name="RavensProject" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -533,8 +540,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.RavensProject" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test" />
+        <item index="1" class="java.lang.String" itemvalue="Python.RavensProject" />
       </list>
     </recent_temporary>
   </component>
@@ -601,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473381259578</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added a few small files - most notably the corner-reduce image to git.">
+      <created>1474750991264</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1474750991264</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -667,7 +681,8 @@
     <MESSAGE value="Finished version 1 code for capturing transforms, applying transforms to generate solutions, and testing solutions.&#10;Also added logic to choose between horizontal and vertical transforms based on ease." />
     <MESSAGE value="Just some small performance tweaks." />
     <MESSAGE value="Added logic to solve problem iteratively so we don't try everything all the time.&#10;Also added a fuzzify method to MyPillow that returns a &quot;blurred&quot; version of the image." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logic to solve problem iteratively so we don't try everything all the time.&#10;Also added a fuzzify method to MyPillow that returns a &quot;blurred&quot; version of the image." />
+    <MESSAGE value="Added a few small files - most notably the corner-reduce image to git." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a few small files - most notably the corner-reduce image to git." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -676,11 +691,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/B.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/A_Added.png" />
     <entry file="file://$PROJECT_DIR$/test/A_Subtracted.png" />
     <entry file="file://$PROJECT_DIR$/RavensProblem.py">
@@ -765,22 +775,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/changed.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/Basic Problem B-12.PNG" />
     <entry file="file://$PROJECT_DIR$/Transform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="20" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/A.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/added.png">
@@ -848,13 +848,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test.png" />
-    <entry file="file://$PROJECT_DIR$/test/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-09/Challenge Problem B-09.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -864,36 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MyPillow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="63" column="75" selection-start-line="63" selection-start-column="75" selection-end-line="63" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-            <element signature="e#511#557#0" expanded="false" />
-            <element signature="e#592#625#0" expanded="false" />
-            <element signature="e#858#900#0" expanded="false" />
-            <element signature="e#929#971#0" expanded="false" />
-            <element signature="e#993#1029#0" expanded="false" />
-            <element signature="e#1052#1089#0" expanded="false" />
-            <element signature="e#1620#1651#0" expanded="false" />
-            <element signature="e#1733#1759#0" expanded="false" />
-            <element signature="e#2176#2242#0" expanded="false" />
-            <element signature="e#2259#2326#0" expanded="false" />
-            <element signature="e#2343#2411#0" expanded="false" />
-            <element signature="e#2429#2497#0" expanded="false" />
-            <element signature="e#2703#2763#0" expanded="false" />
-            <element signature="e#2862#3137#0" expanded="false" />
-            <element signature="e#3363#3444#0" expanded="false" />
-            <element signature="e#3522#3601#0" expanded="false" />
-            <element signature="e#3663#3690#0" expanded="false" />
-            <element signature="e#3795#3969#0" expanded="false" />
-            <element signature="e#3849#3953#0" expanded="false" />
-            <element signature="e#3998#4358#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -936,18 +899,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/submitResults.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SetResults.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -960,11 +931,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SetResults.csv">
+    <entry file="file://$PROJECT_DIR$/test/B.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/A.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/changed.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyPillow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#511#557#0" expanded="false" />
+            <element signature="e#592#625#0" expanded="false" />
+            <element signature="e#858#900#0" expanded="false" />
+            <element signature="e#929#971#0" expanded="false" />
+            <element signature="e#993#1029#0" expanded="false" />
+            <element signature="e#1052#1089#0" expanded="false" />
+            <element signature="e#1620#1651#0" expanded="false" />
+            <element signature="e#1733#1759#0" expanded="false" />
+            <element signature="e#2176#2242#0" expanded="false" />
+            <element signature="e#2259#2326#0" expanded="false" />
+            <element signature="e#2343#2411#0" expanded="false" />
+            <element signature="e#2429#2497#0" expanded="false" />
+            <element signature="e#2703#2763#0" expanded="false" />
+            <element signature="e#2862#3137#0" expanded="false" />
+            <element signature="e#3363#3444#0" expanded="false" />
+            <element signature="e#3522#3601#0" expanded="false" />
+            <element signature="e#3663#3690#0" expanded="false" />
+            <element signature="e#3795#3969#0" expanded="false" />
+            <element signature="e#3849#3953#0" expanded="false" />
+            <element signature="e#3998#4358#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
