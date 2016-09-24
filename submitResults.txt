@@ -1,0 +1,31 @@
+      Right-Wrong-Skipped
+Ravens:     9-0-3
+Test:       10-0-2
+Basic:      11-0-1
+Challenge:  6-1-5
+{
+    "Ravens Problems B": {
+        "Correct": "9",
+        "Skipped": "3",
+        "Incorrect": "0",
+        "Set": "Ravens Problems B"
+    },
+    "Test Problems B": {
+        "Correct": "10",
+        "Skipped": "2",
+        "Incorrect": "0",
+        "Set": "Test Problems B"
+    },
+    "Challenge Problems B": {
+        "Correct": "6",
+        "Skipped": "5",
+        "Incorrect": "1",
+        "Set": "Challenge Problems B"
+    },
+    "Basic Problems B": {
+        "Correct": "11",
+        "Skipped": "1",
+        "Incorrect": "0",
+        "Set": "Basic Problems B"
+    }
+}
