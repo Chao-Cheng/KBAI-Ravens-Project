@@ -11,80 +11,80 @@ FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the i
 corner_reduce = Image.open('corner-reduce.png')
 
 # ADD/SUB IMAGES
-def getSameImage(im1, im2):
-	return Chops.invert(getChangedImage(im1, im2))
+def get_same_image(im1, im2):
+	return Chops.invert(get_changed_image(im1, im2))
 
 
-def getChangedImage(im1, im2):
+def get_changed_image(im1, im2):
 	return Chops.difference(im1, im2)
 
 
-def getAdditionsImage(im1, im2):
+def get_additions_image(im1, im2):
 	return Chops.subtract(fuzzify(im1), im2)
 
 
-def getSubtractionsImage(im1, im2):
+def get_subtractions_image(im1, im2):
 	return Chops.subtract(fuzzify(im2), im1)
 # END ADD/SUB IMAGES
 
 # STATIC TRANSFORMATIONS
-def reflectHorizontal(im):
+def reflect_horizontal(im):
 	return im.transpose(Image.FLIP_LEFT_RIGHT)
 
 
-def reflectVertical(im):
+def reflect_vertical(im):
 	return im.transpose(Image.FLIP_TOP_BOTTOM)
 
 
-def rotate90(im):
+def rotate_90(im):
 	return im.transpose(Image.ROTATE_90)
 
 
-def rotate180(im):
+def rotate_180(im):
 	return im.transpose(Image.ROTATE_180)
 
 
-def rotate270(im):
+def rotate_270(im):
 	return im.transpose(Image.ROTATE_270)
 
 
-def rotate45(im):
+def rotate_45(im):
 	return Chops.add(im.rotate(45, resample=Image.BICUBIC), corner_reduce)
 
 
-def rotate135(im):
+def rotate_135(im):
 	return Chops.add(im.rotate(135, resample=Image.BICUBIC), corner_reduce)
 
 
-def rotate225(im):
+def rotate_225(im):
 	return Chops.add(im.rotate(225, resample=Image.BICUBIC), corner_reduce)
 
 
-def rotate315(im):
+def rotate_315(im):
 	return Chops.add(im.rotate(315, resample=Image.BICUBIC), corner_reduce)
 # END STATIC TRANSFORMATIONS
 
 
 # Adds im2 to im1 as black, returns result
-def addTo(im1, im2):
+def add_to(im1, im2):
 	return Chops.subtract(im1, im2)
 
 
 # Subtracts im2 from im1 as black, returns result
-def subtractFrom(im1, im2):
+def subtract_from(im1, im2):
 	return Chops.add(im1, im2)
 
 
-def imagesMatch(im1, im2, fuzzy=True):
-	return getImageMatchScore(im1, im2, fuzzy) > MATCHED_IMAGE_THRESHOLD
+def images_match(im1, im2, fuzzy=True):
+	return get_image_match_score(im1, im2, fuzzy) > MATCHED_IMAGE_THRESHOLD
 
 
 # returns [im1, im2] as optimally matching images offset by a few pixels
-def fuzzyMatch(im1, im2):
+def fuzzy_match(im1, im2):
 	up, down, left, right = True, True, True, True
 
 	improvements = 0
-	max_score = getImageMatchScore(im1, im2)
+	max_score = get_image_match_score(im1, im2)
 	while True:
 		offset_image = None
 		search_direction = None
@@ -106,7 +106,7 @@ def fuzzyMatch(im1, im2):
 			break
 
 		# test the offset image to see if it's better
-		score = getImageMatchScore(im1, offset_image)
+		score = get_image_match_score(im1, offset_image)
 		if score > max_score and improvements <= FUZZY_MATCH_RESOLUTION:  # if so, update im2
 			im2 = offset_image
 			max_score = score
@@ -130,9 +130,9 @@ def fuzzyMatch(im1, im2):
 
 # Given two images, returns percentage of matching pixels (0 - 100)
 # Note: Offsets the images a few pixels so they optimally match before returning score
-def getImageMatchScore(im1, im2, fuzzy=False):
-	if fuzzy: im1, im2 = fuzzyMatch(im1, im2)
-	return percent(getSameImage(im1, im2))
+def get_image_match_score(im1, im2, fuzzy=False):
+	if fuzzy: im1, im2 = fuzzy_match(im1, im2)
+	return percent(get_same_image(im1, im2))
 
 
 # Returns the percentage of non-zero pixels in the image
@@ -153,14 +153,14 @@ def normalize(*images):
 		image = images[i]
 
 		image = image.resize(IMAGE_SIZE)
-		image = blackOrWhite(image)
+		image = black_or_white(image)
 
 		images[i] = image
 
 	return images
 
 
-def blackOrWhite(image):
+def black_or_white(image):
 	gray_scale = image.convert('L')
 
 	array = np.asarray(gray_scale).copy()  # convert to numpy array
