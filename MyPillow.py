@@ -1,4 +1,4 @@
-from PIL import Image, ImageChops as Chops
+from PIL import Image, ImageChops as Chops, ImageFilter as Filter
 import numpy as np
 
 IMAGE_SIDE = 180
@@ -8,7 +8,7 @@ BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very bl
 FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
 FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
 
-corner_reduce = Image.open('corner-reduce.png')
+# corner_reduce = Image.open('corner-reduce.png')
 
 # ADD/SUB IMAGES
 def get_same_image(im1, im2):
@@ -129,7 +129,7 @@ def fuzzy_match(im1, im2):
 
 
 # Given two images, returns percentage of matching pixels (0 - 100)
-# Note: Offsets the images a few pixels so they optimally match before returning score
+# Fuzzy=True offsets the images a few pixels so they optimally match before returning score
 def get_image_match_score(im1, im2, fuzzy=False):
 	if fuzzy: im1, im2 = fuzzy_match(im1, im2)
 	return percent(get_same_image(im1, im2))
@@ -141,8 +141,9 @@ def percent(im):
 	return (count(im) / total_pixels) * 100
 
 
-# Returns the non-zero pixels in the image
-def count(im):
+# Returns a count of the non-zero (white) pixels in the image
+def count(im, color='white'):
+	if color == 'black': im = Chops.invert(im)
 	return np.count_nonzero(im)
 
 
@@ -181,3 +182,61 @@ def fuzzify(im):
 			inv = Chops.add(inv, Chops.offset(inv, i, j))  # add the offset image
 
 	return Chops.invert(inv)
+
+
+def count_regions(image, color='black'):
+	image = image.resize((30, 30))  # Have to size this down to avoid stack overflow errors
+
+	if color == 'black': pix_val = 0
+	elif color == 'white': pix_val = 255
+	array = np.asarray(image)
+	array.flags.writeable = True
+
+	count = 0
+	for r in range(len(array)):
+		for c in range(len(array[0])):
+			if array[r][c] == pix_val:  # If this pixel matches what we are looking for
+				count += 1
+				recursive_fill(array, r, c, count, pix_val)
+	# print(array)
+
+	return count
+
+
+def recursive_fill(array, r, c, num, pix_val):
+	array[r][c] = num
+
+	up = r-1
+	if 0 <= up and array[up][c] == pix_val:
+		recursive_fill(array, up, c, num, pix_val)
+
+	down = r+1
+	if down < len(array) and array[down][c] == pix_val:
+		recursive_fill(array, down, c, num, pix_val)
+
+	left = c-1
+	if 0 <= left and array[r][left] == pix_val:
+		recursive_fill(array, r, left, num, pix_val)
+
+	right = c+1
+	if right < len(array[0]) and array[r][right] == pix_val:
+		recursive_fill(array, r, right, num, pix_val)
+
+
+# Returns the difference in count of black pixels between the two images
+def black_pixel_count_difference(im1, im2):
+	im1, im2 = Chops.invert(im1), Chops.invert(im2)
+	return count(im2) - count(im1)
+
+
+# Percent (0-100) of black pixels that are the same in im2 as im1
+def black_match_rate(im1, im2):
+	im1_black = count(im1, color='black')
+	im2_black = count(im2, color='black')
+	total = im1_black + im2_black
+
+	changed = count(get_changed_image(im1, im2))
+
+	same = (total - changed) / 2
+
+	return same / max(im1_black, im2_black) * 100

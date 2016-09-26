@@ -48,7 +48,48 @@ class Agent:
 		self.set_problem_details(problem)
 		self.print_problem_details()
 
-		try:  # Load our images
+		# Load our images
+		if self.is3x3: im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		else: im_a, im_b, im_c = self.load_problem_images()
+
+		answer_guess = -1
+		if self.is3x3:
+			pass
+		else:
+			h_transforms, v_transforms = None, None
+
+			transform_attempt_order = 0
+			while answer_guess == -1 and transform_attempt_order <= self.max_transform_attempt_order:
+				# Let's determine what horizontal and vertical transformations we have - iteratively
+				h_transforms = self.get_priority_transforms(im_a, im_b, h_transforms, transform_attempt_order)
+				v_transforms = self.get_priority_transforms(im_a, im_c, v_transforms, transform_attempt_order)
+				transform_attempt_order += 1
+
+				# Choose between horizontal and vertical transforms
+				# Will choose the list that has the best match before additions and subtractions
+				print()
+				if h_transforms[0].score > v_transforms[0].score:
+					print('Choosing horizontal transforms')
+					transforms = h_transforms
+					image_to_transform = im_c
+				else:
+					print('Choosing vertical transforms')
+					transforms = v_transforms
+					image_to_transform = im_b
+
+				# Apply Transforms to get expected solutions
+				solutions = [transform.apply_to(image_to_transform) for transform in transforms]
+
+				# Test solutions for accuracy, returning the best one if it fits well enough
+				answer_guess = self.find_solution(solutions)
+
+			if problem.name.endswith('08') and not self.submitting: self.print_solution_info(image_to_transform, transforms, solutions)
+
+		self.print_elapsed_time()
+		return answer_guess
+
+	def load_problem_images(self):
+		try:
 			im_a = self.load_image('A')
 			im_b = self.load_image('B')
 			im_c = self.load_image('C')
@@ -59,49 +100,14 @@ class Agent:
 				im_f = self.load_image('F')
 				im_g = self.load_image('G')
 				im_h = self.load_image('H')
-				im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = Pillow.normalize(im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h)
+				return Pillow.normalize(im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h)
 			else:
-				im_a, im_b, im_c = Pillow.normalize(im_a, im_b, im_c)
+				return Pillow.normalize(im_a, im_b, im_c)
 		except IOError as e:
 			print('IO issue - probably could not load image')
 			print(e)
-			return -1
 		except:
 			print('Unknown Error: Unable to determine transformations')
-			return -1
-
-		h_transforms, v_transforms = None, None
-
-		transform_attempt_order = 0
-		answer_guess = -1
-		while answer_guess == -1 and transform_attempt_order <= self.max_transform_attempt_order:
-			# Let's determine what horizontal and vertical transformations we have - iteratively
-			h_transforms = self.get_priority_transforms(im_a, im_b, h_transforms, transform_attempt_order)
-			v_transforms = self.get_priority_transforms(im_a, im_c, v_transforms, transform_attempt_order)
-			transform_attempt_order += 1
-
-			# Choose between horizontal and vertical transforms
-			# Will choose the list that has the best match before additions and subtractions
-			print()
-			if h_transforms[0].score > v_transforms[0].score:
-				print('Choosing horizontal transforms')
-				transforms = h_transforms
-				image_to_transform = im_c
-			else:
-				print('Choosing vertical transforms')
-				transforms = v_transforms
-				image_to_transform = im_b
-
-			# Apply Transforms to get expected solutions
-			solutions = [transform.applyTo(image_to_transform) for transform in transforms]
-
-			# Test solutions for accuracy, returning the best one if it fits well enough
-			answer_guess = self.find_solution(solutions)
-
-		if problem.name.endswith('08') and not self.submitting: self.print_solution_info(image_to_transform, transforms, solutions)
-
-		self.print_elapsed_time()
-		return answer_guess
 
 	# Given two images, returns a list of Transforms that will turn im1 into im2
 	# List is ordered by how well the images matched before additions and subtractions were considered: best match first
@@ -136,19 +142,19 @@ class Agent:
 	def find_solution(self, solution_images):
 		try:
 			# Load answer images
-			im_1 = self.load_image('1')
-			im_2 = self.load_image('2')
-			im_3 = self.load_image('3')
-			im_4 = self.load_image('4')
-			im_5 = self.load_image('5')
-			im_6 = self.load_image('6')
+			im1 = self.load_image('1')
+			im2 = self.load_image('2')
+			im3 = self.load_image('3')
+			im4 = self.load_image('4')
+			im5 = self.load_image('5')
+			im6 = self.load_image('6')
 
 			if self.is3x3:
-				im_7 = self.load_image('7')
-				im_8 = self.load_image('8')
-				answers = Pillow.normalize(im_1, im_2, im_3, im_4, im_5, im_6, im_7, im_8)
+				im7 = self.load_image('7')
+				im8 = self.load_image('8')
+				answers = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
 			else:
-				answers = Pillow.normalize(im_1, im_2, im_3, im_4, im_5, im_6)
+				answers = Pillow.normalize(im1, im2, im3, im4, im5, im6)
 
 			# Get the best match from the answers for each solution image
 			solutions = []
@@ -204,7 +210,7 @@ class Agent:
 		print('Solution took', int(elapsed*1000), 'milliseconds')
 		self.time = time.time()
 
-	# Returns the image with the same name as the given key from the provided problem
+	# Returns the image with the same name as the given key
 	def load_image(self, key):
 		filename = self.problem.figures[key].visualFilename
 		return Pillow.Image.open(os.path.join(self.here, filename))

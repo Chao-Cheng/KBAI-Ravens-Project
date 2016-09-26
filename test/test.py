@@ -1,5 +1,7 @@
+from PIL import Image, ImageChops as Chops, ImageFilter as Filter
+import numpy as np
+
 import MyPillow as Pillow
-from PIL import Image, ImageChops as Chops
 import Transform as Trans
 import os
 import sys
@@ -8,24 +10,61 @@ import sys
 def main():
 	here = sys.path[0]
 
-	im1 = Image.open('A.png')
-	im2 = Image.open('B.png')
-	im1, im2 = Pillow.normalize(im1, im2)
+	imA = Image.open('A.png')
+	imB = Image.open('B.png')
+	imC = Image.open('C.png')
+	imD = Image.open('D.png')
+	imE = Image.open('E.png')
+	imF = Image.open('F.png')
+	imG = Image.open('G.png')
+	imH = Image.open('H.png')
+	imA, imB, imC, imD, imE, imF, imG, imH = Pillow.normalize(imA, imB, imC, imD, imE, imF, imG, imH)
 
-	print(Pillow.get_image_match_score(im1, im2))
-	print(Pillow.get_image_match_score(im1, im2, fuzzy=True))
+	im1 = Image.open('1.png')
+	im2 = Image.open('2.png')
+	im3 = Image.open('3.png')
+	im4 = Image.open('4.png')
+	im5 = Image.open('5.png')
+	im6 = Image.open('6.png')
+	im7 = Image.open('7.png')
+	im8 = Image.open('8.png')
+	im1, im2, im3, im4, im5, im6, im7, im8 = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
 
-	changed = Pillow.get_changed_image(im1, im2)
-	changed.save(os.path.join(here, 'changed.png'))
+	print('A TO B')
+	print(Pillow.count(imA, 'black'), Pillow.count(imB, 'black'))
+	print(Pillow.black_pixel_count_difference(imA, imB), Pillow.black_match_rate(imA, imB))
+	print()
+	print('B TO C')
+	print(Pillow.count(imB, 'black'), Pillow.count(imC, 'black'))
+	print(Pillow.black_pixel_count_difference(imB, imC), Pillow.black_match_rate(imB, imC))
+	print()
+	print('D TO E')
+	print(Pillow.count(imD, 'black'), Pillow.count(imE, 'black'))
+	print(Pillow.black_pixel_count_difference(imD, imE), Pillow.black_match_rate(imD, imE))
+	print()
+	print('E TO F')
+	print(Pillow.count(imE, 'black'), Pillow.count(imF, 'black'))
+	print(Pillow.black_pixel_count_difference(imE, imF), Pillow.black_match_rate(imE, imF))
+	print()
+	print('G TO H')
+	print(Pillow.count(imG, 'black'), Pillow.count(imH, 'black'))
+	print(Pillow.black_pixel_count_difference(imG, imH), Pillow.black_match_rate(imG, imH))
+	print()
+	print('H TO ANSWER')
+	print(Pillow.count(imH, 'black'), Pillow.count(im4, 'black'))
+	print(Pillow.black_pixel_count_difference(imH, im4), Pillow.black_match_rate(imH, im4))
 
-	same = Pillow.get_same_image(im1, im2)
-	same.save(os.path.join(here, 'same.png'))
-
-	added = Pillow.get_additions_image(im1, im2)
-	added.save(os.path.join(here, 'added.png'))
-
-	subtracted = Pillow.get_subtractions_image(im1, im2)
-	subtracted.save(os.path.join(here, 'subtracted.png'))
+	# changed = Pillow.get_changed_image(im1, im3)
+	# changed.save(os.path.join(here, 'changed.png'))
+	#
+	# same = Pillow.get_same_image(im1, im2)
+	# same.save(os.path.join(here, 'same.png'))
+	#
+	# added = Pillow.get_additions_image(im1, im2)
+	# added.save(os.path.join(here, 'added.png'))
+	#
+	# subtracted = Pillow.get_subtractions_image(im1, im2)
+	# subtracted.save(os.path.join(here, 'subtracted.png'))
 
 	# TEST GET PRIORITY TRANSFORMS
 	# priority_transforms = [trans.Transform(im1)]  # Start the list with a blank transform
