@@ -1,6 +1,7 @@
 from PIL import Image, ImageChops as Chops, ImageFilter as Filter
 import numpy as np
 
+from Agent import PixelAnalysis
 import MyPillow as Pillow
 import Transform as Trans
 import os
@@ -30,29 +31,35 @@ def main():
 	im8 = Image.open('8.png')
 	im1, im2, im3, im4, im5, im6, im7, im8 = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
 
-	print('A TO B')
-	print(Pillow.count(imA, 'black'), Pillow.count(imB, 'black'))
-	print(Pillow.black_pixel_count_difference(imA, imB), Pillow.black_match_rate(imA, imB))
+	print(PixelAnalysis(imA, imB, imC))
+
 	print()
-	print('B TO C')
-	print(Pillow.count(imB, 'black'), Pillow.count(imC, 'black'))
-	print(Pillow.black_pixel_count_difference(imB, imC), Pillow.black_match_rate(imB, imC))
+	print(PixelAnalysis(imD, imE, imF))
+
 	print()
-	print('D TO E')
-	print(Pillow.count(imD, 'black'), Pillow.count(imE, 'black'))
-	print(Pillow.black_pixel_count_difference(imD, imE), Pillow.black_match_rate(imD, imE))
+	print(PixelAnalysis(imG, imH, im1))
+
 	print()
-	print('E TO F')
-	print(Pillow.count(imE, 'black'), Pillow.count(imF, 'black'))
-	print(Pillow.black_pixel_count_difference(imE, imF), Pillow.black_match_rate(imE, imF))
+	print(PixelAnalysis(imG, imH, im2))
+
 	print()
-	print('G TO H')
-	print(Pillow.count(imG, 'black'), Pillow.count(imH, 'black'))
-	print(Pillow.black_pixel_count_difference(imG, imH), Pillow.black_match_rate(imG, imH))
+	print(PixelAnalysis(imG, imH, im3))
+
 	print()
-	print('H TO ANSWER')
-	print(Pillow.count(imH, 'black'), Pillow.count(im4, 'black'))
-	print(Pillow.black_pixel_count_difference(imH, im4), Pillow.black_match_rate(imH, im4))
+	print(PixelAnalysis(imG, imH, im4))
+
+	print()
+	print(PixelAnalysis(imG, imH, im5))
+
+	print()
+	print(PixelAnalysis(imG, imH, im6))
+
+	print()
+	print(PixelAnalysis(imG, imH, im7))
+
+	print()
+	print(PixelAnalysis(imG, imH, im8))
+
 
 	# changed = Pillow.get_changed_image(im1, im3)
 	# changed.save(os.path.join(here, 'changed.png'))
