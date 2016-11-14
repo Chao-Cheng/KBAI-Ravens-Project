@@ -3,12 +3,12 @@ import numpy as np
 
 IMAGE_SIDE = 180
 IMAGE_SIZE = (IMAGE_SIDE, IMAGE_SIDE)
-MATCHED_IMAGE_THRESHOLD = 98.5
+MATCHED_IMAGE_THRESHOLD = 98
 BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very black
 FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
 FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
 
-corner_reduce = Image.open('corner-reduce.png')
+# corner_reduce = Image.open('corner-reduce.png')
 
 # ADD/SUB IMAGES
 def get_same_image(im1, im2):
@@ -26,6 +26,9 @@ def get_additions_image(im1, im2):
 def get_subtractions_image(im1, im2):
 	return Chops.subtract(fuzzify(im2), im1)
 # END ADD/SUB IMAGES
+
+def OR_image(im1, im2):
+	return Chops.invert(Chops.add(Chops.invert(im1), Chops.invert(im2)))
 
 # STATIC TRANSFORMATIONS
 def reflect_horizontal(im):
@@ -240,3 +243,12 @@ def black_match_rate(im1, im2):
 	same = (total - changed) / 2
 
 	return same / max(im1_black, im2_black) * 100
+
+def black_pixel_summation(*images):
+	images = list(images)
+
+	total = 0
+	for image in images:
+		total += count(image, 'black')
+
+	return total

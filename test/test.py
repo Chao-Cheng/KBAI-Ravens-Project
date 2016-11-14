@@ -1,7 +1,7 @@
 from PIL import Image, ImageChops as Chops, ImageFilter as Filter
 import numpy as np
 
-from Agent import PixelAnalysis
+from Agent import PixelAnalysis, PixelAnalysisAnalysis
 import MyPillow as Pillow
 import Transform as Trans
 import os
@@ -31,37 +31,20 @@ def main():
 	im8 = Image.open('8.png')
 	im1, im2, im3, im4, im5, im6, im7, im8 = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
 
-	print(PixelAnalysis(imA, imB, imC))
 
-	print()
-	print(PixelAnalysis(imD, imE, imF))
-
-	print()
-	print(PixelAnalysis(imG, imH, im1))
-
-	print()
-	print(PixelAnalysis(imG, imH, im2))
-
-	print()
-	print(PixelAnalysis(imG, imH, im3))
-
-	print()
-	print(PixelAnalysis(imG, imH, im4))
-
-	print()
-	print(PixelAnalysis(imG, imH, im5))
-
-	print()
-	print(PixelAnalysis(imG, imH, im6))
-
-	print()
-	print(PixelAnalysis(imG, imH, im7))
-
-	print()
-	print(PixelAnalysis(imG, imH, im8))
+	print(Pillow.black_pixel_summation(imA, imB, imC))
+	print(Pillow.black_pixel_summation(imD, imE, imF))
+	print(1, Pillow.black_pixel_summation(imG, imH, im1))
+	print(2, Pillow.black_pixel_summation(imG, imH, im2))
+	print(3, Pillow.black_pixel_summation(imG, imH, im3))
+	print(4, Pillow.black_pixel_summation(imG, imH, im4))
+	print(5, Pillow.black_pixel_summation(imG, imH, im5))
+	print(6, Pillow.black_pixel_summation(imG, imH, im6))
+	print(7, Pillow.black_pixel_summation(imG, imH, im7))
+	print(8, Pillow.black_pixel_summation(imG, imH, im8))
 
 
-	# changed = Pillow.get_changed_image(im1, im3)
+	# changed = Pillow.get_changed_image(imA, imB)
 	# changed.save(os.path.join(here, 'changed.png'))
 	#
 	# same = Pillow.get_same_image(im1, im2)

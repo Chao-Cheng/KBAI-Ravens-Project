@@ -22,7 +22,8 @@ import math
 class Agent:
 
 	submitting = False
-	DEVIATION_DIFFERENCE_REQUIRED = 2
+	DEVIATION_DIFFERENCE_REQUIRED = 3
+	PIXEL_SUMMATION_PERCENT_DIFF = .01
 
 
 	# The default constructor for your Agent. Make sure to execute any
@@ -60,7 +61,24 @@ class Agent:
 		answer_guess = -1
 		if self.is3x3:
 			progression_answer = self.get_progression_answer()
-			if progression_answer > -1: return progression_answer
+			if progression_answer > -1:
+				print("Solved with Progression")
+				self.print_elapsed_time()
+				return progression_answer
+
+			OR_answer = self.get_OR_answer()
+			if OR_answer > -1:
+				print("Solved with OR")
+				self.print_elapsed_time()
+				return OR_answer
+
+			pixel_sum_answer = self.get_pixel_summation_answer()
+			if pixel_sum_answer > -1:
+				print("Solved with Pixel Summation")
+				self.print_elapsed_time()
+				return pixel_sum_answer
+
+			print("Skipped")
 
 		else:
 			h_transforms, v_transforms = None, None
@@ -134,6 +152,7 @@ class Agent:
 			print('IO issue - probably could not load image')
 			print(e)
 
+	# Answer method that tests problem for "progression" pattern
 	def get_progression_answer(self):
 		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
 		answers = self.load_problem_answers()
@@ -209,6 +228,55 @@ class Agent:
 		else:
 			return -1
 
+	# Answer method that tests problem for OR patter, where A + B = C and/or A + D = G
+	def get_OR_answer(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		# If first and second row exhibit OR pattern, see if we can find an accurate third-row solution
+		if self.exhibits_OR(im_a, im_b, im_c) and self.exhibits_OR(im_d, im_e, im_f):
+			for i, answer in enumerate(answers):
+				if self.exhibits_OR(im_g, im_h, answer):
+					return i+1
+
+		return -1
+
+	# Helper method that returns true or false showing whether im1 ORed with im2 gives im3
+	def exhibits_OR(self, im1, im2, im3):
+		return Pillow.images_match(Pillow.OR_image(im1, im2), im3)
+
+	# Answer method that tests problem for total pixel summation pattern
+	def get_pixel_summation_answer(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		# Try row summation first
+
+		row_1_sum = Pillow.black_pixel_summation(im_a, im_b, im_c)
+		row_2_sum = Pillow.black_pixel_summation(im_d, im_e, im_f)
+
+		# If the sums are close enough, let's see if we can find an answer that is also close
+		if abs(row_1_sum - row_2_sum) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(row_1_sum, row_2_sum):
+			avg = (row_1_sum + row_2_sum) // 2
+			for i, answer in enumerate(answers):
+				sum = Pillow.black_pixel_summation(im_g, im_h, answer)
+				if abs(sum - avg) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg):
+					return i+1
+
+		# Try col summation second
+
+		col_1_sum = Pillow.black_pixel_summation(im_a, im_d, im_g)
+		col_2_sum = Pillow.black_pixel_summation(im_b, im_e, im_h)
+
+		# If the sums are close enough, let's see if we can find an answer that is also close
+		if abs(col_1_sum - col_2_sum) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(col_1_sum, col_2_sum):
+			avg = (col_1_sum + col_2_sum) // 2
+			for i, answer in enumerate(answers):
+				sum = Pillow.black_pixel_summation(im_c, im_f, answer)
+				if abs(sum - avg) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg):
+					return i+1
+
+		return -1
 
 	# Given two images, returns a list of Transforms that will turn im1 into im2
 	# List is ordered by how well the images matched before additions and subtractions were considered: best match first
@@ -319,19 +387,24 @@ class Solution:
 
 # To measure the change in the images
 class PixelAnalysis:
+
+	MIN_PIXEL_CHANGE_RANGE = 1
+	MIN_MATCH_RATE_CHANGE_RANGE = .1
+
+
 	def __init__(self, *images):
 		self._images = list(images)
 		self.pixel_changes = []
-		self.pixel_change_dif = None
+		self.pixel_change_dif = None  # Average difference between the pixel changes
 		self.match_rates = []
-		self.match_rate_dif = None
+		self.match_rate_change_dif = None  # Average difference between the match rate changes
 		self.deviation = None
 		self.answer = None
 
 		self._set_pixel_changes()
 		self._set_pixel_change_dif()
 		self._set_match_rates()
-		self._set_match_rate_dif()
+		self._set_match_rate_change_dif()
 
 	def _set_pixel_changes(self):
 		for i in range(len(self._images)):
@@ -350,7 +423,7 @@ class PixelAnalysis:
 			change2 = self.pixel_changes[i + 1]
 			difs.append(change2 - change1)
 
-		self.pixel_change_dif = sum(difs) // len(difs)
+		self.pixel_change_dif = sum(difs) // len(difs)  # Average difference
 
 	def _set_match_rates(self):
 		for i in range(len(self._images)):
@@ -360,24 +433,24 @@ class PixelAnalysis:
 			im2 = self._images[i+1]
 			self.match_rates.append(Pillow.black_match_rate(im1, im2))
 
-	def _set_match_rate_dif(self):
+	def _set_match_rate_change_dif(self):
 		difs = []
 		for i in range(len(self.match_rates)):
 			if i + 1 > len(self.match_rates) - 1: break
 
 			rate1 = self.match_rates[i]
 			rate2 = self.match_rates[i + 1]
-			difs.append(rate1 - rate2)
+			difs.append(rate2 - rate1)
 
-		self.match_rate_dif = sum(difs) / len(difs)
+		self.match_rate_change_dif = sum(difs) / len(difs)
 
 	def set_deviation(self, paa):
 		pixel_change_range_size = abs(paa.expected_pixel_dif_range[0] - paa.expected_pixel_dif_range[1])
 		match_rate_change_range_size = abs(paa.expected_match_rate_dif_range[0] - paa.expected_match_rate_dif_range[1])
 
 		# Make sure our ranges are not zero
-		if pixel_change_range_size == 0: pixel_change_range_size = 1
-		if match_rate_change_range_size == 0: match_rate_change_range_size = .1
+		if pixel_change_range_size == 0: pixel_change_range_size = self.MIN_PIXEL_CHANGE_RANGE
+		if match_rate_change_range_size == 0: match_rate_change_range_size = self.MIN_MATCH_RATE_CHANGE_RANGE
 
 		# Pixel change dif deviation first
 		if self.pixel_change_dif > paa.expected_pixel_dif_range[1]:  # If we got more than expected
@@ -390,11 +463,11 @@ class PixelAnalysis:
 			pixel_change_dif_deviation = 0  # Within the expected
 
 		# Match rate change dif deviation second
-		if self.match_rate_dif > paa.expected_match_rate_dif_range[1]:  # If we got more than expected
-			raw_deviation = self.match_rate_dif - paa.expected_match_rate_dif_range[1]
+		if self.match_rate_change_dif > paa.expected_match_rate_dif_range[1]:  # If we got more than expected
+			raw_deviation = self.match_rate_change_dif - paa.expected_match_rate_dif_range[1]
 			match_rate_change_dif_deviation = math.ceil(raw_deviation / match_rate_change_range_size)
-		elif self.match_rate_dif < paa.expected_match_rate_dif_range[0]:  # If we got less than expected
-			raw_deviation = paa.expected_match_rate_dif_range[0] - self.match_rate_dif
+		elif self.match_rate_change_dif < paa.expected_match_rate_dif_range[0]:  # If we got less than expected
+			raw_deviation = paa.expected_match_rate_dif_range[0] - self.match_rate_change_dif
 			match_rate_change_dif_deviation = math.ceil(raw_deviation / match_rate_change_range_size)
 		else:
 			match_rate_change_dif_deviation = 0  # Within the expected
@@ -403,11 +476,11 @@ class PixelAnalysis:
 
 	def __str__(self):
 		return (
-			# str(self.pixel_changes) + '\n'
-			str(self.pixel_change_dif) + '\n'
-			# + str(self.match_rates) + '\n'
-			+ str(self.match_rate_dif)
-			+ ('' if self.deviation is None else '\nDeviation: {0}'.format(self.deviation))
+			str(self.pixel_changes) + '\n' +
+			str(self.pixel_change_dif) + '\n' +
+			str(self.match_rates) + '\n' +
+			str(self.match_rate_change_dif) +
+			('' if self.deviation is None else '\nDeviation: {0}'.format(self.deviation))
 		)
 
 
@@ -434,11 +507,11 @@ class PixelAnalysisAnalysis:
 		)
 
 	def _set_match_rate_dif_change(self):
-		self.match_rate_dif_change = self.pa2.match_rate_dif - self.pa1.match_rate_dif
-		self.expected_match_rate_dif = self.pa2.match_rate_dif + self.match_rate_dif_change
+		self.match_rate_dif_change = self.pa2.match_rate_change_dif - self.pa1.match_rate_change_dif
+		self.expected_match_rate_dif = self.pa2.match_rate_change_dif + self.match_rate_dif_change
 		self.expected_match_rate_dif_range = (
-			min(self.pa1.match_rate_dif, self.pa2.match_rate_dif, self.expected_match_rate_dif),
-			max(self.pa1.match_rate_dif, self.pa2.match_rate_dif, self.expected_match_rate_dif)
+			min(self.pa1.match_rate_change_dif, self.pa2.match_rate_change_dif, self.expected_match_rate_dif),
+			max(self.pa1.match_rate_change_dif, self.pa2.match_rate_change_dif, self.expected_match_rate_dif)
 		)
 
 	def __str__(self):
