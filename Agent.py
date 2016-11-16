@@ -24,6 +24,7 @@ class Agent:
 	submitting = False
 	DEVIATION_DIFFERENCE_REQUIRED = 3
 	PIXEL_SUMMATION_PERCENT_DIFF = .006
+	PIXEL_SUBTRACTION_PERCENT_DIFF = .02
 
 
 	# The default constructor for your Agent. Make sure to execute any
@@ -66,6 +67,12 @@ class Agent:
 				print("Solved with OR")
 				self.print_elapsed_time()
 				return OR_answer
+
+			AB_pixel_sub_answer = self.get_AB_pixel_subtraction_answer()
+			if AB_pixel_sub_answer > -1:
+				print('Solved with AB Pixel Subtraction')
+				self.print_elapsed_time()
+				return AB_pixel_sub_answer
 
 			pixel_sum_answer = self.get_pixel_summation_answer()
 			if pixel_sum_answer > -1:
@@ -278,6 +285,45 @@ class Agent:
 					return i+1
 
 		return -1
+
+	# Answer method that tests problem for A-B=C pixel summation pattern
+	def get_AB_pixel_subtraction_answer(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		# Try row relationships first
+
+		row_1_diff = abs((Pillow.count(im_a, 'black') - Pillow.count(im_b, 'black')) - Pillow.count(im_c, 'black'))
+		row_2_diff = abs((Pillow.count(im_d, 'black') - Pillow.count(im_e, 'black')) - Pillow.count(im_f, 'black'))
+		print('Row 1 and 2 diff:', row_1_diff, row_2_diff)
+		print('C and F count:', Pillow.count(im_c, 'black'), Pillow.count(im_f, 'black'))
+
+		# If the subtractions are close enough, let's see if we can find an answer that is also close
+		least_diff = 10000000
+		best_answer = -1
+		if row_1_diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(im_c, 'black') and row_2_diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(im_f, 'black'):
+			gh_diff = Pillow.count(im_g, 'black') - Pillow.count(im_h, 'black')
+			for i, answer in enumerate(answers):
+				diff = abs(gh_diff - Pillow.count(answer, 'black'))
+				if diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(answer, 'black') and diff < least_diff:
+					least_diff = diff
+					best_answer = i+1
+
+		# Try col summation second
+
+		col_1_diff = abs((Pillow.count(im_a, 'black') - Pillow.count(im_d, 'black')) - Pillow.count(im_g, 'black'))
+		col_2_diff = abs((Pillow.count(im_b, 'black') - Pillow.count(im_e, 'black')) - Pillow.count(im_h, 'black'))
+
+		# If the subtractions are close enough, let's see if we can find an answer that is also close
+		if col_1_diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(im_g, 'black') and col_2_diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(im_h, 'black'):
+			cf_diff = Pillow.count(im_c, 'black') - Pillow.count(im_f, 'black')
+			for i, answer in enumerate(answers):
+				diff = abs(cf_diff - Pillow.count(answer, 'black'))
+				if diff < self.PIXEL_SUBTRACTION_PERCENT_DIFF * Pillow.count(answer, 'black') and diff < least_diff:
+					least_diff = diff
+					best_answer = i+1
+
+		return best_answer
 
 	# Given two images, returns a list of Transforms that will turn im1 into im2
 	# List is ordered by how well the images matched before additions and subtractions were considered: best match first
