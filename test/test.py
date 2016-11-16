@@ -32,16 +32,13 @@ def main():
 	im1, im2, im3, im4, im5, im6, im7, im8 = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
 
 
-	print(Pillow.black_pixel_summation(imA, imB, imC))
-	print(Pillow.black_pixel_summation(imD, imE, imF))
-	print(1, Pillow.black_pixel_summation(imG, imH, im1))
-	print(2, Pillow.black_pixel_summation(imG, imH, im2))
-	print(3, Pillow.black_pixel_summation(imG, imH, im3))
-	print(4, Pillow.black_pixel_summation(imG, imH, im4))
-	print(5, Pillow.black_pixel_summation(imG, imH, im5))
-	print(6, Pillow.black_pixel_summation(imG, imH, im6))
-	print(7, Pillow.black_pixel_summation(imG, imH, im7))
-	print(8, Pillow.black_pixel_summation(imG, imH, im8))
+	print(exhibits_OR(imA, imB, imC))
+	print(exhibits_OR(imD, imE, imF))
+
+	ored = Pillow.OR_image(imD, imE)
+	ored.save(os.path.join(here, 'ored.png'))
+
+	print(Pillow.get_image_match_score(ored, imF, 'true'))
 
 
 	# changed = Pillow.get_changed_image(imA, imB)
@@ -85,6 +82,9 @@ def main():
 	# 	transform.subtract_image.save(os.path.join(here, name + '_subtracted.png'))
 
 	# END TEST GET PRIORITY TRANSFORMS
+
+def exhibits_OR(im1, im2, im3):
+	return Pillow.images_match(Pillow.OR_image(im1, im2), im3)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ import numpy as np
 
 IMAGE_SIDE = 180
 IMAGE_SIZE = (IMAGE_SIDE, IMAGE_SIDE)
-MATCHED_IMAGE_THRESHOLD = 98
+MATCHED_IMAGE_THRESHOLD = 98.3
 BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very black
 FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
 FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
@@ -234,8 +234,9 @@ def black_pixel_count_difference(im1, im2):
 
 # Percent (0-100) of black pixels that are the same in im2 as im1
 def black_match_rate(im1, im2):
-	im1_black = count(im1, color='black')
-	im2_black = count(im2, color='black')
+	im1, im2 = fuzzify(im1), fuzzify(im2)
+	im1_black = count(im1, 'black')
+	im2_black = count(im2, 'black')
 	total = im1_black + im2_black
 
 	changed = count(get_changed_image(im1, im2))

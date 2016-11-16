@@ -23,7 +23,7 @@ class Agent:
 
 	submitting = False
 	DEVIATION_DIFFERENCE_REQUIRED = 3
-	PIXEL_SUMMATION_PERCENT_DIFF = .01
+	PIXEL_SUMMATION_PERCENT_DIFF = .006
 
 
 	# The default constructor for your Agent. Make sure to execute any
@@ -60,11 +60,6 @@ class Agent:
 
 		answer_guess = -1
 		if self.is3x3:
-			progression_answer = self.get_progression_answer()
-			if progression_answer > -1:
-				print("Solved with Progression")
-				self.print_elapsed_time()
-				return progression_answer
 
 			OR_answer = self.get_OR_answer()
 			if OR_answer > -1:
@@ -77,6 +72,12 @@ class Agent:
 				print("Solved with Pixel Summation")
 				self.print_elapsed_time()
 				return pixel_sum_answer
+
+			progression_answer = self.get_progression_answer()
+			if progression_answer > -1:
+				print("Solved with Progression")
+				self.print_elapsed_time()
+				return progression_answer
 
 			print("Skipped")
 
