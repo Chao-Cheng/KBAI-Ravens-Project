@@ -187,43 +187,64 @@ def fuzzify(im):
 	return Chops.invert(inv)
 
 
-def count_regions(image, color='black'):
-	image = image.resize((30, 30))  # Have to size this down to avoid stack overflow errors
+def region_summation(images, color='black'):
+	return sum([count_regions(im, color) for im in images])
 
+
+def count_regions_dict(image):
+	return {
+		'white': count_regions(image, 'white'),
+		'black': count_regions(image, 'black')
+	}
+
+
+def count_regions(image, color='black'):
 	if color == 'black': pix_val = 0
 	elif color == 'white': pix_val = 255
 	array = np.asarray(image)
 	array.flags.writeable = True
 
-	count = 0
+	num = 0
 	for r in range(len(array)):
 		for c in range(len(array[0])):
 			if array[r][c] == pix_val:  # If this pixel matches what we are looking for
-				count += 1
-				recursive_fill(array, r, c, count, pix_val)
+				num += 1
+				stack_fill(array, r, c, num, pix_val)
 	# print(array)
 
-	return count
+	return num
 
 
-def recursive_fill(array, r, c, num, pix_val):
+# Used by count_regions to fill in a shape made of connected pixels of the same color
+def stack_fill(array, r, c, num, pix_val):
+	stack = [(r, c)]
 	array[r][c] = num
 
-	up = r-1
-	if 0 <= up and array[up][c] == pix_val:
-		recursive_fill(array, up, c, num, pix_val)
+	# Pop from stack and fill
+	while len(stack) > 0:
+		coord = stack.pop()
+		r, c = coord[0], coord[1]
 
-	down = r+1
-	if down < len(array) and array[down][c] == pix_val:
-		recursive_fill(array, down, c, num, pix_val)
+		# Add neighboors that need filling to stack
+		up = r-1
+		if 0 <= up and array[up][c] == pix_val:
+			stack.append((up, c))
+			array[up][c] = num
 
-	left = c-1
-	if 0 <= left and array[r][left] == pix_val:
-		recursive_fill(array, r, left, num, pix_val)
+		down = r+1
+		if down < len(array) and array[down][c] == pix_val:
+			stack.append((down, c))
+			array[down][c] = num
 
-	right = c+1
-	if right < len(array[0]) and array[r][right] == pix_val:
-		recursive_fill(array, r, right, num, pix_val)
+		left = c-1
+		if 0 <= left and array[r][left] == pix_val:
+			stack.append((r, left))
+			array[r][left] = num
+
+		right = c+1
+		if right < len(array[0]) and array[r][right] == pix_val:
+			stack.append((r, right))
+			array[r][right] = num
 
 
 # Returns the difference in count of black pixels between the two images

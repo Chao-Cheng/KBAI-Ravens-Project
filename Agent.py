@@ -21,9 +21,9 @@ import math
 
 class Agent:
 
-	submitting = False
+	submitting = True
 	DEVIATION_DIFFERENCE_REQUIRED = 3
-	PIXEL_SUMMATION_PERCENT_DIFF = .006
+	PIXEL_SUMMATION_PERCENT_DIFF = .007
 	PIXEL_SUBTRACTION_PERCENT_DIFF = .02
 
 
@@ -64,25 +64,36 @@ class Agent:
 
 			OR_answer = self.get_OR_answer()
 			if OR_answer > -1:
-				print("Solved with OR")
+				print("Solved with OR:", OR_answer)
 				self.print_elapsed_time()
 				return OR_answer
 
 			AB_pixel_sub_answer = self.get_AB_pixel_subtraction_answer()
 			if AB_pixel_sub_answer > -1:
-				print('Solved with AB Pixel Subtraction')
+				print('Solved with AB Pixel Subtraction:', AB_pixel_sub_answer)
 				self.print_elapsed_time()
 				return AB_pixel_sub_answer
 
 			pixel_sum_answer = self.get_pixel_summation_answer()
 			if pixel_sum_answer > -1:
-				print("Solved with Pixel Summation")
+				print("Solved with Pixel Summation:", pixel_sum_answer)
 				self.print_elapsed_time()
 				return pixel_sum_answer
 
-			progression_answer = self.get_progression_answer()
+			region_summation_answers = self.region_summation_answers()
+			uniqueness_answers = self.unique_answers()
+			# print('Region Answers:', region_summation_answers)
+			# print('Uniqueness Answers:', uniqueness_answers)
+			valid_answers = [a for a in region_summation_answers if a in uniqueness_answers]
+			print('valid answers:', valid_answers)
+			if len(valid_answers) == 1:
+				print('Only one valid answer:', valid_answers[0])
+				self.print_elapsed_time()
+				return valid_answers[0]
+
+			progression_answer = self.get_progression_answer(valid_answers)
 			if progression_answer > -1:
-				print("Solved with Progression")
+				print("Solved with Progression:", progression_answer)
 				self.print_elapsed_time()
 				return progression_answer
 
@@ -160,8 +171,68 @@ class Agent:
 			print('IO issue - probably could not load image')
 			print(e)
 
+	# Limits answer options based on regions summation - returns valid answers to be considered
+	def region_summation_answers(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		images = [im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h]
+		image_region_counts = [Pillow.count_regions_dict(im) for im in images]
+
+		row1_black_regions = sum([image_region_counts[i]['black'] for i in range(0, 3)])
+		row1_white_regions = sum([image_region_counts[i]['white'] for i in range(0, 3)])
+		row2_black_regions = sum([image_region_counts[i]['black'] for i in range(3, 6)])
+		row2_white_regions = sum([image_region_counts[i]['white'] for i in range(3, 6)])
+
+		limited_answers = []
+		if row1_black_regions == row2_black_regions and row1_white_regions == row2_white_regions:
+			print('Exhibits row-region summation')
+			answer_region_counts = [Pillow.count_regions_dict(ans) for ans in answers]
+
+			gh_black = image_region_counts[6]['black'] + image_region_counts[7]['black']
+			gh_white = image_region_counts[6]['white'] + image_region_counts[7]['white']
+
+			for i in range(len(answer_region_counts)):
+				answer_dict = answer_region_counts[i]
+				if row1_black_regions == gh_black + answer_dict['black'] and row1_white_regions == gh_white + answer_dict['white']:
+					limited_answers.append(i+1)
+					# print('{0} is valid'.format(i+1))
+
+		return limited_answers if len(limited_answers) > 0 else [1, 2, 3, 4, 5, 6, 7, 8]
+
+	# Limits answer options based on uniqueness
+	def unique_answers(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		images = [im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h]
+		answers = self.load_problem_answers()
+
+		unique_answers = []
+		if self.are_unique(images):
+			print('Exhibits uniqueness')
+			for i, answer in enumerate(answers):
+				if self.is_unique(answer, images):
+					unique_answers.append(i+1)
+
+		return unique_answers if len(unique_answers) > 0 else [1, 2, 3, 4, 5, 6, 7, 8]
+
+	# Returns true of false depending on whether all of the images are unique or not
+	def are_unique(self, images):
+		if len(images) == 0: return False
+
+		for i, image in enumerate(images):
+			if not self.is_unique(image, images[i+1:]): return False
+
+		return True
+
+	# Returns true or false depending on whether the first image is unique to all the other images
+	def is_unique(self, im, images):
+		for image in images:
+			if Pillow.images_match(im, image): return False
+
+		return True
+
 	# Answer method that tests problem for "progression" pattern
-	def get_progression_answer(self):
+	def get_progression_answer(self, valid_answers):
 		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
 		answers = self.load_problem_answers()
 
@@ -179,6 +250,8 @@ class Agent:
 		# Collect our pixel analyses for each answer and score them
 		pa_answers = []
 		for i, answer in enumerate(answers):
+			if i+1 not in valid_answers: continue
+
 			pa_answer = PixelAnalysis(im_g, im_h, answer)
 			pa_answer.set_deviation(paa)
 			pa_answer.answer = i+1
@@ -189,9 +262,9 @@ class Agent:
 		pa_answers.sort(key=lambda pa: pa.deviation)
 		hor_best_pa_answer = pa_answers[0]
 		hor_deviation_dif = pa_answers[1].deviation - pa_answers[0].deviation
-		print('Horizontal deviation is {0} for answer {1}. Best by {2}'.format(
-			pa_answers[0].deviation, pa_answers[0].answer, hor_deviation_dif
-		)); print()
+		# print('Horizontal deviation is {0} for answer {1}. Best by {2}'.format(
+		# 	pa_answers[0].deviation, pa_answers[0].answer, hor_deviation_dif
+		# )); print()
 
 
 		# VERTICAL SECOND
@@ -208,6 +281,8 @@ class Agent:
 		# Collect our pixel analyses for each answer and score them
 		pa_answers = []
 		for i, answer in enumerate(answers):
+			if i+1 not in valid_answers: continue
+
 			pa_answer = PixelAnalysis(im_c, im_f, answer)
 			pa_answer.set_deviation(paa)
 			pa_answer.answer = i+1
@@ -218,9 +293,9 @@ class Agent:
 		pa_answers.sort(key=lambda pa: pa.deviation)
 		ver_best_pa_answer = pa_answers[0]
 		ver_deviation_dif = pa_answers[1].deviation - pa_answers[0].deviation
-		print('Vertical deviation is {0} for answer {1}. Best by {2}'.format(
-			pa_answers[0].deviation, pa_answers[0].answer, ver_deviation_dif
-		)); print()
+		# print('Vertical deviation is {0} for answer {1}. Best by {2}'.format(
+		# 	pa_answers[0].deviation, pa_answers[0].answer, ver_deviation_dif
+		# )); print()
 
 
 		# Take the best from horizontal and vertical
@@ -264,12 +339,17 @@ class Agent:
 		row_2_sum = Pillow.black_pixel_summation(im_d, im_e, im_f)
 
 		# If the sums are close enough, let's see if we can find an answer that is also close
+		least_diff = 1000000
+		best_answer = -1
 		if abs(row_1_sum - row_2_sum) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(row_1_sum, row_2_sum):
 			avg = (row_1_sum + row_2_sum) // 2
 			for i, answer in enumerate(answers):
 				sum = Pillow.black_pixel_summation(im_g, im_h, answer)
-				if abs(sum - avg) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg):
-					return i+1
+				diff = abs(sum - avg)
+				if diff < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg) and diff < least_diff:
+					least_diff = diff
+					best_answer = i+1
+					# print('new best answer of', i+1)
 
 		# Try col summation second
 
@@ -281,10 +361,13 @@ class Agent:
 			avg = (col_1_sum + col_2_sum) // 2
 			for i, answer in enumerate(answers):
 				sum = Pillow.black_pixel_summation(im_c, im_f, answer)
-				if abs(sum - avg) < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg):
-					return i+1
+				diff = abs(sum - avg)
+				if diff < self.PIXEL_SUMMATION_PERCENT_DIFF * min(sum, avg) and diff < least_diff:
+					least_diff = diff
+					best_answer = i+1
+					# print('new best answer of', i+1)
 
-		return -1
+		return best_answer
 
 	# Answer method that tests problem for A-B=C pixel summation pattern
 	def get_AB_pixel_subtraction_answer(self):
@@ -295,8 +378,8 @@ class Agent:
 
 		row_1_diff = abs((Pillow.count(im_a, 'black') - Pillow.count(im_b, 'black')) - Pillow.count(im_c, 'black'))
 		row_2_diff = abs((Pillow.count(im_d, 'black') - Pillow.count(im_e, 'black')) - Pillow.count(im_f, 'black'))
-		print('Row 1 and 2 diff:', row_1_diff, row_2_diff)
-		print('C and F count:', Pillow.count(im_c, 'black'), Pillow.count(im_f, 'black'))
+		# print('Row 1 and 2 diff:', row_1_diff, row_2_diff)
+		# print('C and F count:', Pillow.count(im_c, 'black'), Pillow.count(im_f, 'black'))
 
 		# If the subtractions are close enough, let's see if we can find an answer that is also close
 		least_diff = 10000000

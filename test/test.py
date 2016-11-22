@@ -20,6 +20,7 @@ def main():
 	imG = Image.open('G.png')
 	imH = Image.open('H.png')
 	imA, imB, imC, imD, imE, imF, imG, imH = Pillow.normalize(imA, imB, imC, imD, imE, imF, imG, imH)
+	images = [imA, imB, imC, imD, imE, imF, imG, imH]
 
 	im1 = Image.open('1.png')
 	im2 = Image.open('2.png')
@@ -30,15 +31,19 @@ def main():
 	im7 = Image.open('7.png')
 	im8 = Image.open('8.png')
 	im1, im2, im3, im4, im5, im6, im7, im8 = Pillow.normalize(im1, im2, im3, im4, im5, im6, im7, im8)
+	answers = [im1, im2, im3, im4, im5, im6, im7, im8]
 
 
-	print(exhibits_OR(imA, imB, imC))
-	print(exhibits_OR(imD, imE, imF))
+	print(are_unique(images))
 
-	ored = Pillow.OR_image(imD, imE)
-	ored.save(os.path.join(here, 'ored.png'))
 
-	print(Pillow.get_image_match_score(ored, imF, 'true'))
+	# print(exhibits_OR(imA, imB, imC))
+	# print(exhibits_OR(imD, imE, imF))
+	#
+	# ored = Pillow.OR_image(imD, imE)
+	# ored.save(os.path.join(here, 'ored.png'))
+	#
+	# print(Pillow.get_image_match_score(ored, imF, 'true'))
 
 
 	# changed = Pillow.get_changed_image(imA, imB)
@@ -86,6 +91,34 @@ def main():
 def exhibits_OR(im1, im2, im3):
 	return Pillow.images_match(Pillow.OR_image(im1, im2), im3)
 
+
+def region_summation_answers(im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h):
+	images = [im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h]
+	image_region_counts = [Pillow.count_regions_dict(im) for im in images]
+
+	row_black_regions = sum([image_region_counts[i]['black'] for i in range(0, 3)])
+	row_white_regions = sum([image_region_counts[i]['white'] for i in range(0, 3)])
+
+	print(row_black_regions)
+	print(row_white_regions)
+
+
+# Returns true of false depending on whether all of the images are unique or not
+def are_unique(images):
+	if len(images) == 0: return False
+
+	for i, image in enumerate(images):
+		print('testing image {0} for uniqueness'.format(i))
+		if not is_unique(image, images[i+1:]): return False
+
+	return True
+
+# Returns true or false depending on whether the first image is unique to all the other images
+def is_unique(im, images):
+	for image in images:
+		if Pillow.images_match(im, image): return False
+
+	return True
 
 if __name__ == "__main__":
 	main()

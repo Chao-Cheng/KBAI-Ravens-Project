@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed278577-f2f3-4b09-b3d3-9ce102aca4b4" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/B.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/C.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/student.zip" afterPath="$PROJECT_DIR$/student.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Agent.py" afterPath="$PROJECT_DIR$/Agent.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AgentAnswers.csv" afterPath="$PROJECT_DIR$/AgentAnswers.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MyPillow.py" afterPath="$PROJECT_DIR$/MyPillow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProblemResults.csv" afterPath="$PROJECT_DIR$/ProblemResults.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Problems/ProblemSetList.txt" afterPath="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SetResults.csv" afterPath="$PROJECT_DIR$/SetResults.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/submit.py" afterPath="$PROJECT_DIR$/submit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test.py" afterPath="$PROJECT_DIR$/test/test.py" />
     </list>
     <ignored path="Project-Code-Python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,8 +34,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project-Code-Python$Pillow.coverage" NAME="Pillow Coverage Results" MODIFIED="1472510339476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1479324610081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1479336243379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$test.coverage" NAME="test Coverage Results" MODIFIED="1479849644716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/Project-Code-Python$RavensProject.coverage" NAME="RavensProject Coverage Results" MODIFIED="1479849837848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -36,76 +49,66 @@
       <file leaf-file-name="Agent.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+            <state relative-caret-position="361">
+              <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
               <folding>
-                <element signature="e#677#743#0" expanded="false" />
-                <element signature="e#925#1121#0" expanded="false" />
-                <element signature="e#1124#1195#0" expanded="false" />
-                <element signature="e#2778#4117#0" expanded="false" />
-                <element signature="e#2947#3965#0" expanded="false" />
-                <element signature="e#3268#3319#0" expanded="false" />
-                <element signature="e#3476#3577#0" expanded="false" />
-                <element signature="e#3593#3692#0" expanded="false" />
-                <element signature="e#4026#4117#0" expanded="false" />
-                <element signature="e#4204#4699#0" expanded="false" />
-                <element signature="e#4212#4611#0" expanded="false" />
-                <element signature="e#4325#4556#0" expanded="false" />
-                <element signature="e#4638#4699#0" expanded="false" />
-                <element signature="e#4736#5227#0" expanded="false" />
-                <element signature="e#4744#5136#0" expanded="false" />
-                <element signature="e#4944#5069#0" expanded="false" />
-                <element signature="e#5163#5224#0" expanded="false" />
-                <element signature="e#5325#7785#0" expanded="false" />
-                <element signature="e#7896#8304#0" expanded="false" />
-                <element signature="e#8606#9867#0" expanded="false" />
-                <element signature="e#11976#12052#0" expanded="false" />
-                <element signature="e#12243#13340#0" expanded="false" />
-                <element signature="e#12435#12491#0" expanded="false" />
-                <element signature="e#13184#13310#0" expanded="false" />
-                <element signature="e#13246#13310#0" expanded="false" />
-                <element signature="e#13343#13428#0" expanded="false" />
-                <element signature="e#13634#14565#0" expanded="false" />
-                <element signature="e#13798#14134#0" expanded="false" />
-                <element signature="e#13874#14073#0" expanded="false" />
-                <element signature="e#14019#14073#0" expanded="false" />
-                <element signature="e#14138#14194#0" expanded="false" />
-                <element signature="e#14483#14532#0" expanded="false" />
-                <element signature="e#14610#14681#0" expanded="false" />
-                <element signature="e#14719#14934#0" expanded="false" />
-                <element signature="e#14969#15100#0" expanded="false" />
-                <element signature="e#15189#15302#0" expanded="false" />
-                <element signature="e#15380#15893#0" expanded="false" />
-                <element signature="e#15529#15893#0" expanded="false" />
-                <element signature="e#15958#16015#0" expanded="false" />
-                <element signature="e#16039#16101#0" expanded="false" />
-                <element signature="e#16953#17235#0" expanded="false" />
-                <element signature="e#17009#17163#0" expanded="false" />
-                <element signature="e#17503#17751#0" expanded="false" />
-                <element signature="e#17557#17697#0" expanded="false" />
-                <element signature="e#17786#19598#0" expanded="false" />
-                <element signature="e#18364#18518#0" expanded="false" />
-                <element signature="e#18618#18772#0" expanded="false" />
-                <element signature="e#18989#19163#0" expanded="false" />
-                <element signature="e#19273#19447#0" expanded="false" />
-                <element signature="e#19622#19861#0" expanded="false" />
-                <element signature="e#19968#20286#0" expanded="false" />
-                <element signature="e#20324#20692#0" expanded="false" />
-                <element signature="e#20519#20688#0" expanded="false" />
-                <element signature="e#20735#21168#0" expanded="false" />
-                <element signature="e#20965#21164#0" expanded="false" />
-                <element signature="e#21192#21294#0" expanded="false" />
+                <element signature="e#676#742#0" expanded="false" />
+                <element signature="e#924#1120#0" expanded="false" />
+                <element signature="e#1123#1194#0" expanded="false" />
+                <element signature="e#3521#4539#0" expanded="false" />
+                <element signature="e#3842#3893#0" expanded="false" />
+                <element signature="e#4050#4151#0" expanded="false" />
+                <element signature="e#4167#4266#0" expanded="false" />
+                <element signature="e#4778#5273#0" expanded="false" />
+                <element signature="e#4786#5185#0" expanded="false" />
+                <element signature="e#4899#5130#0" expanded="false" />
+                <element signature="e#5212#5273#0" expanded="false" />
+                <element signature="e#5318#5710#0" expanded="false" />
+                <element signature="e#5518#5643#0" expanded="false" />
+                <element signature="e#5737#5798#0" expanded="false" />
+                <element signature="e#5932#7278#0" expanded="false" />
+                <element signature="e#8406#10962#0" expanded="false" />
+                <element signature="e#11073#11481#0" expanded="false" />
+                <element signature="e#11612#11670#0" expanded="false" />
+                <element signature="e#11783#13311#0" expanded="false" />
+                <element signature="e#13429#15421#0" expanded="false" />
+                <element signature="e#15691#16788#0" expanded="false" />
+                <element signature="e#15883#15939#0" expanded="false" />
+                <element signature="e#16632#16758#0" expanded="false" />
+                <element signature="e#16694#16758#0" expanded="false" />
+                <element signature="e#16791#16876#0" expanded="false" />
+                <element signature="e#17082#18013#0" expanded="false" />
+                <element signature="e#17246#17582#0" expanded="false" />
+                <element signature="e#17322#17521#0" expanded="false" />
+                <element signature="e#17467#17521#0" expanded="false" />
+                <element signature="e#17586#17642#0" expanded="false" />
+                <element signature="e#17931#17980#0" expanded="false" />
+                <element signature="e#18058#18129#0" expanded="false" />
+                <element signature="e#18167#18382#0" expanded="false" />
+                <element signature="e#18417#18548#0" expanded="false" />
+                <element signature="e#18637#18750#0" expanded="false" />
+                <element signature="e#18828#19341#0" expanded="false" />
+                <element signature="e#18977#19341#0" expanded="false" />
+                <element signature="e#19406#19463#0" expanded="false" />
+                <element signature="e#19487#19549#0" expanded="false" />
+                <element signature="e#20401#20683#0" expanded="false" />
+                <element signature="e#20457#20611#0" expanded="false" />
+                <element signature="e#20951#21199#0" expanded="false" />
+                <element signature="e#21005#21145#0" expanded="false" />
+                <element signature="e#21234#23046#0" expanded="false" />
+                <element signature="e#21812#21966#0" expanded="false" />
+                <element signature="e#22066#22220#0" expanded="false" />
+                <element signature="e#22437#22611#0" expanded="false" />
+                <element signature="e#22721#22895#0" expanded="false" />
+                <element signature="e#23070#23309#0" expanded="false" />
+                <element signature="e#23416#23734#0" expanded="false" />
+                <element signature="e#23772#24140#0" expanded="false" />
+                <element signature="e#23967#24136#0" expanded="false" />
+                <element signature="e#24183#24616#0" expanded="false" />
+                <element signature="e#24413#24612#0" expanded="false" />
+                <element signature="e#24640#24742#0" expanded="false" />
+                <marker date="1479849837831" expanded="false" signature="5307:5798" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProblemSetList.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -113,11 +116,9 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="497">
+              <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,8 +126,8 @@
       <file leaf-file-name="MyPillow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MyPillow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="238">
+              <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
               <folding>
                 <element signature="e#695#735#0" expanded="false" />
                 <element signature="e#777#817#0" expanded="false" />
@@ -154,32 +155,40 @@
                 <element signature="e#4606#4697#0" expanded="false" />
                 <element signature="e#4806#5125#0" expanded="false" />
                 <element signature="e#4963#5098#0" expanded="false" />
-                <element signature="e#5170#5634#0" expanded="false" />
-                <element signature="e#5431#5605#0" expanded="false" />
-                <element signature="e#5465#5605#0" expanded="false" />
-                <element signature="e#5545#5603#0" expanded="false" />
-                <element signature="e#5685#6140#0" expanded="false" />
-                <element signature="e#6258#6337#0" expanded="false" />
+                <element signature="e#5898#6541#0" expanded="false" />
+                <element signature="e#6659#6738#0" expanded="false" />
+                <element signature="e#6840#7100#0" expanded="false" />
+                <element signature="e#7139#7242#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SetResults.csv" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SetResults.csv">
+      <file leaf-file-name="ProblemSetList.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProblemResults.csv" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SetResults.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SetResults.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProblemResults.csv" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProblemResults.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+            <state relative-caret-position="442">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -213,12 +222,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Transform.py" />
         <option value="$PROJECT_DIR$/submit.py" />
-        <option value="$PROJECT_DIR$/test/test.py" />
-        <option value="$PROJECT_DIR$/MyPillow.py" />
         <option value="$PROJECT_DIR$/Problems/ProblemSetList.txt" />
-        <option value="$PROJECT_DIR$/ProblemResults.csv" />
-        <option value="$PROJECT_DIR$/Agent.py" />
+        <option value="$PROJECT_DIR$/MyPillow.py" />
         <option value="$PROJECT_DIR$/SetResults.csv" />
+        <option value="$PROJECT_DIR$/test/test.py" />
+        <option value="$PROJECT_DIR$/Agent.py" />
+        <option value="$PROJECT_DIR$/ProblemResults.csv" />
       </list>
     </option>
   </component>
@@ -278,8 +287,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane />
       </pane>
@@ -295,15 +304,15 @@
     <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\test" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems\Basic Problems B\Basic Problem B-08" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\testAgent" />
       <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python\Problems" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\David\Documents\Projects\GaTech\KBAI\Project-Code-Python" />
     </key>
   </component>
   <component name="RunManager" selected="Python.RavensProject">
@@ -667,20 +676,27 @@
       <option name="project" value="LOCAL" />
       <updated>1479325660416</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added an AB pixel subtraction method that solves two E basic problems.">
+      <created>1479336283977</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1479336283977</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21658097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="599" y="47" width="398" height="766" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.218509" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="599" y="47" width="398" height="766" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970026" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32833788" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29241645" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30012855" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3781965" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -739,7 +755,8 @@
     <MESSAGE value="Progression anlysis is now in place with the addition of PixelAnalysis and PixelAnalysisAnalysis. This method takes care of 9 of the twelve basic problems." />
     <MESSAGE value="Implemented OR and Pixel Summation solutions for 3x3 problems to make progress on the D and E sets." />
     <MESSAGE value="Fine-tuned 3x3 methods to increase accuracy. In a pretty good spot now, so time to implement a new solution method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fine-tuned 3x3 methods to increase accuracy. In a pretty good spot now, so time to implement a new solution method." />
+    <MESSAGE value="Added an AB pixel subtraction method that solves two E basic problems." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added an AB pixel subtraction method that solves two E basic problems." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -748,32 +765,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/priTrans1_added.png" />
-    <entry file="file://$PROJECT_DIR$/test/C.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/4.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Problems/Challenge Problems B/Challenge Problem B-06/5.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -886,13 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/submit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/Basic Problem C-06.PNG" />
     <entry file="file://$PROJECT_DIR$/test/changed.png" />
     <entry file="file://$PROJECT_DIR$/test/Basic Problem C-01.PNG" />
@@ -928,10 +912,57 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RavensProject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProblemSet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1288">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RavensGrader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/submit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/H.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/C.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MyPillow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="80" column="4" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="4" />
           <folding>
             <element signature="e#695#735#0" expanded="false" />
             <element signature="e#777#817#0" expanded="false" />
@@ -959,111 +990,104 @@
             <element signature="e#4606#4697#0" expanded="false" />
             <element signature="e#4806#5125#0" expanded="false" />
             <element signature="e#4963#5098#0" expanded="false" />
-            <element signature="e#5170#5634#0" expanded="false" />
-            <element signature="e#5431#5605#0" expanded="false" />
-            <element signature="e#5465#5605#0" expanded="false" />
-            <element signature="e#5545#5603#0" expanded="false" />
-            <element signature="e#5685#6140#0" expanded="false" />
-            <element signature="e#6258#6337#0" expanded="false" />
+            <element signature="e#5898#6541#0" expanded="false" />
+            <element signature="e#6659#6738#0" expanded="false" />
+            <element signature="e#6840#7100#0" expanded="false" />
+            <element signature="e#7139#7242#0" expanded="false" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/saved.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Problems/ProblemSetList.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProblemResults.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
+        <state relative-caret-position="497">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+        <state relative-caret-position="361">
+          <caret line="90" column="16" selection-start-line="90" selection-start-column="16" selection-end-line="90" selection-end-column="16" />
           <folding>
-            <element signature="e#677#743#0" expanded="false" />
-            <element signature="e#925#1121#0" expanded="false" />
-            <element signature="e#1124#1195#0" expanded="false" />
-            <element signature="e#2778#4117#0" expanded="false" />
-            <element signature="e#2947#3965#0" expanded="false" />
-            <element signature="e#3268#3319#0" expanded="false" />
-            <element signature="e#3476#3577#0" expanded="false" />
-            <element signature="e#3593#3692#0" expanded="false" />
-            <element signature="e#4026#4117#0" expanded="false" />
-            <element signature="e#4204#4699#0" expanded="false" />
-            <element signature="e#4212#4611#0" expanded="false" />
-            <element signature="e#4325#4556#0" expanded="false" />
-            <element signature="e#4638#4699#0" expanded="false" />
-            <element signature="e#4736#5227#0" expanded="false" />
-            <element signature="e#4744#5136#0" expanded="false" />
-            <element signature="e#4944#5069#0" expanded="false" />
-            <element signature="e#5163#5224#0" expanded="false" />
-            <element signature="e#5325#7785#0" expanded="false" />
-            <element signature="e#7896#8304#0" expanded="false" />
-            <element signature="e#8606#9867#0" expanded="false" />
-            <element signature="e#11976#12052#0" expanded="false" />
-            <element signature="e#12243#13340#0" expanded="false" />
-            <element signature="e#12435#12491#0" expanded="false" />
-            <element signature="e#13184#13310#0" expanded="false" />
-            <element signature="e#13246#13310#0" expanded="false" />
-            <element signature="e#13343#13428#0" expanded="false" />
-            <element signature="e#13634#14565#0" expanded="false" />
-            <element signature="e#13798#14134#0" expanded="false" />
-            <element signature="e#13874#14073#0" expanded="false" />
-            <element signature="e#14019#14073#0" expanded="false" />
-            <element signature="e#14138#14194#0" expanded="false" />
-            <element signature="e#14483#14532#0" expanded="false" />
-            <element signature="e#14610#14681#0" expanded="false" />
-            <element signature="e#14719#14934#0" expanded="false" />
-            <element signature="e#14969#15100#0" expanded="false" />
-            <element signature="e#15189#15302#0" expanded="false" />
-            <element signature="e#15380#15893#0" expanded="false" />
-            <element signature="e#15529#15893#0" expanded="false" />
-            <element signature="e#15958#16015#0" expanded="false" />
-            <element signature="e#16039#16101#0" expanded="false" />
-            <element signature="e#16953#17235#0" expanded="false" />
-            <element signature="e#17009#17163#0" expanded="false" />
-            <element signature="e#17503#17751#0" expanded="false" />
-            <element signature="e#17557#17697#0" expanded="false" />
-            <element signature="e#17786#19598#0" expanded="false" />
-            <element signature="e#18364#18518#0" expanded="false" />
-            <element signature="e#18618#18772#0" expanded="false" />
-            <element signature="e#18989#19163#0" expanded="false" />
-            <element signature="e#19273#19447#0" expanded="false" />
-            <element signature="e#19622#19861#0" expanded="false" />
-            <element signature="e#19968#20286#0" expanded="false" />
-            <element signature="e#20324#20692#0" expanded="false" />
-            <element signature="e#20519#20688#0" expanded="false" />
-            <element signature="e#20735#21168#0" expanded="false" />
-            <element signature="e#20965#21164#0" expanded="false" />
-            <element signature="e#21192#21294#0" expanded="false" />
+            <element signature="e#676#742#0" expanded="false" />
+            <element signature="e#924#1120#0" expanded="false" />
+            <element signature="e#1123#1194#0" expanded="false" />
+            <element signature="e#3521#4539#0" expanded="false" />
+            <element signature="e#3842#3893#0" expanded="false" />
+            <element signature="e#4050#4151#0" expanded="false" />
+            <element signature="e#4167#4266#0" expanded="false" />
+            <element signature="e#4778#5273#0" expanded="false" />
+            <element signature="e#4786#5185#0" expanded="false" />
+            <element signature="e#4899#5130#0" expanded="false" />
+            <element signature="e#5212#5273#0" expanded="false" />
+            <element signature="e#5318#5710#0" expanded="false" />
+            <element signature="e#5518#5643#0" expanded="false" />
+            <element signature="e#5737#5798#0" expanded="false" />
+            <element signature="e#5932#7278#0" expanded="false" />
+            <element signature="e#8406#10962#0" expanded="false" />
+            <element signature="e#11073#11481#0" expanded="false" />
+            <element signature="e#11612#11670#0" expanded="false" />
+            <element signature="e#11783#13311#0" expanded="false" />
+            <element signature="e#13429#15421#0" expanded="false" />
+            <element signature="e#15691#16788#0" expanded="false" />
+            <element signature="e#15883#15939#0" expanded="false" />
+            <element signature="e#16632#16758#0" expanded="false" />
+            <element signature="e#16694#16758#0" expanded="false" />
+            <element signature="e#16791#16876#0" expanded="false" />
+            <element signature="e#17082#18013#0" expanded="false" />
+            <element signature="e#17246#17582#0" expanded="false" />
+            <element signature="e#17322#17521#0" expanded="false" />
+            <element signature="e#17467#17521#0" expanded="false" />
+            <element signature="e#17586#17642#0" expanded="false" />
+            <element signature="e#17931#17980#0" expanded="false" />
+            <element signature="e#18058#18129#0" expanded="false" />
+            <element signature="e#18167#18382#0" expanded="false" />
+            <element signature="e#18417#18548#0" expanded="false" />
+            <element signature="e#18637#18750#0" expanded="false" />
+            <element signature="e#18828#19341#0" expanded="false" />
+            <element signature="e#18977#19341#0" expanded="false" />
+            <element signature="e#19406#19463#0" expanded="false" />
+            <element signature="e#19487#19549#0" expanded="false" />
+            <element signature="e#20401#20683#0" expanded="false" />
+            <element signature="e#20457#20611#0" expanded="false" />
+            <element signature="e#20951#21199#0" expanded="false" />
+            <element signature="e#21005#21145#0" expanded="false" />
+            <element signature="e#21234#23046#0" expanded="false" />
+            <element signature="e#21812#21966#0" expanded="false" />
+            <element signature="e#22066#22220#0" expanded="false" />
+            <element signature="e#22437#22611#0" expanded="false" />
+            <element signature="e#22721#22895#0" expanded="false" />
+            <element signature="e#23070#23309#0" expanded="false" />
+            <element signature="e#23416#23734#0" expanded="false" />
+            <element signature="e#23772#24140#0" expanded="false" />
+            <element signature="e#23967#24136#0" expanded="false" />
+            <element signature="e#24183#24616#0" expanded="false" />
+            <element signature="e#24413#24612#0" expanded="false" />
+            <element signature="e#24640#24742#0" expanded="false" />
+            <marker date="1479849837831" expanded="false" signature="5307:5798" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SetResults.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProblemResults.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding />
         </state>
       </provider>
