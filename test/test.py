@@ -34,7 +34,11 @@ def main():
 	answers = [im1, im2, im3, im4, im5, im6, im7, im8]
 
 
-	print(are_unique(images))
+	print(exhibits_XOR(imA, imD, imG))
+	print(exhibits_XOR(imB, imE, imH))
+	print(exhibits_XOR(imC, imF, im3))
+	Pillow.XOR_image(imA, imB).save(os.path.join(here, 'xor.png'))
+	print(Pillow.get_image_match_score(Pillow.XOR_image(imA, imB), imC, fuzzy=True))
 
 
 	# print(exhibits_OR(imA, imB, imC))
@@ -87,6 +91,9 @@ def main():
 	# 	transform.subtract_image.save(os.path.join(here, name + '_subtracted.png'))
 
 	# END TEST GET PRIORITY TRANSFORMS
+
+def exhibits_XOR(im1, im2, im3):
+	return Pillow.images_match(Pillow.XOR_image(im1, im2), im3)
 
 def exhibits_OR(im1, im2, im3):
 	return Pillow.images_match(Pillow.OR_image(im1, im2), im3)

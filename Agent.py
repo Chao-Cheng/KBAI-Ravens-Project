@@ -25,6 +25,7 @@ class Agent:
 	DEVIATION_DIFFERENCE_REQUIRED = 3
 	PIXEL_SUMMATION_PERCENT_DIFF = .007
 	PIXEL_SUBTRACTION_PERCENT_DIFF = .02
+	XOR_MATHCED_IMAGE_THRESHOLD = 96
 
 
 	# The default constructor for your Agent. Make sure to execute any
@@ -67,6 +68,12 @@ class Agent:
 				print("Solved with OR:", OR_answer)
 				self.print_elapsed_time()
 				return OR_answer
+
+			XOR_answer = self.get_XOR_answer()
+			if XOR_answer > -1:
+				print("Solved with XOR:", XOR_answer)
+				self.print_elapsed_time()
+				return XOR_answer
 
 			AB_pixel_sub_answer = self.get_AB_pixel_subtraction_answer()
 			if AB_pixel_sub_answer > -1:
@@ -311,7 +318,7 @@ class Agent:
 		else:
 			return -1
 
-	# Answer method that tests problem for OR patter, where A + B = C and/or A + D = G
+	# Answer method that tests problem for OR pattern, where A + B = C and/or A + D = G
 	def get_OR_answer(self):
 		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
 		answers = self.load_problem_answers()
@@ -327,6 +334,28 @@ class Agent:
 	# Helper method that returns true or false showing whether im1 ORed with im2 gives im3
 	def exhibits_OR(self, im1, im2, im3):
 		return Pillow.images_match(Pillow.OR_image(im1, im2), im3)
+
+	# Answer method that tests problem for XOR pattern
+	def get_XOR_answer(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		# If first and second row exhibit XOR pattern, see if we can find an accurate third-row solution
+		if self.exhibits_XOR(im_a, im_b, im_c) and self.exhibits_XOR(im_d, im_e, im_f):
+			for i, answer in enumerate(answers):
+				if self.exhibits_XOR(im_g, im_h, answer):
+					return i+1
+
+		# If first and second col exhibit XOR pattern, see if we can find an accurate third-col solution
+		if self.exhibits_XOR(im_a, im_d, im_g) and self.exhibits_XOR(im_b, im_e, im_h):
+			for i, answer in enumerate(answers):
+				if self.exhibits_XOR(im_c, im_f, answer):
+					return i+1
+
+		return -1
+
+	def exhibits_XOR(self, im1, im2, im3):
+		return Pillow.get_image_match_score(Pillow.XOR_image(im1, im2), im3) >= self.XOR_MATHCED_IMAGE_THRESHOLD
 
 	# Answer method that tests problem for total pixel summation pattern
 	def get_pixel_summation_answer(self):

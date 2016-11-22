@@ -30,6 +30,13 @@ def get_subtractions_image(im1, im2):
 def OR_image(im1, im2):
 	return Chops.invert(Chops.add(Chops.invert(im1), Chops.invert(im2)))
 
+def XOR_image(im1, im2):
+	# subtract from each other, then add the subtractions together
+	im1_inv, im2_inv = Chops.invert(im1), Chops.invert(im2)
+	sub_right = Chops.subtract(im1_inv, im2_inv)
+	sub_left = Chops.subtract(im2_inv, im1_inv)
+	return Chops.invert(Chops.add(sub_left, sub_right))
+
 # STATIC TRANSFORMATIONS
 def reflect_horizontal(im):
 	return im.transpose(Image.FLIP_LEFT_RIGHT)
