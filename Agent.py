@@ -63,6 +63,12 @@ class Agent:
 		answer_guess = -1
 		if self.is3x3:
 
+			AND_answer = self.get_AND_answer()
+			if AND_answer > -1:
+				print("Solved with AND:", AND_answer)
+				self.print_elapsed_time()
+				return AND_answer
+
 			OR_answer = self.get_OR_answer()
 			if OR_answer > -1:
 				print("Solved with OR:", OR_answer)
@@ -317,6 +323,23 @@ class Agent:
 			return chosen_pa_answer.answer
 		else:
 			return -1
+
+	# Answer method that tests problem for AND pattern
+	def get_AND_answer(self):
+		im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h = self.load_problem_images()
+		answers = self.load_problem_answers()
+
+		# If first and second row exhibit OR pattern, see if we can find an accurate third-row solution
+		if self.exhibits_AND(im_a, im_b, im_c) and self.exhibits_AND(im_d, im_e, im_f):
+			for i, answer in enumerate(answers):
+				if self.exhibits_AND(im_g, im_h, answer):
+					return i+1
+
+		return -1
+
+	# Helper method that returns true or false showing whether im1 ORed with im2 gives im3
+	def exhibits_AND(self, im1, im2, im3):
+		return Pillow.images_match(Pillow.AND_image(im1, im2), im3)
 
 	# Answer method that tests problem for OR pattern, where A + B = C and/or A + D = G
 	def get_OR_answer(self):

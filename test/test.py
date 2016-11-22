@@ -34,12 +34,10 @@ def main():
 	answers = [im1, im2, im3, im4, im5, im6, im7, im8]
 
 
-	print(exhibits_XOR(imA, imD, imG))
-	print(exhibits_XOR(imB, imE, imH))
-	print(exhibits_XOR(imC, imF, im3))
-	Pillow.XOR_image(imA, imB).save(os.path.join(here, 'xor.png'))
-	print(Pillow.get_image_match_score(Pillow.XOR_image(imA, imB), imC, fuzzy=True))
-
+	Pillow.AND_image(imG, imH).save(os.path.join(here, 'and.png'))
+	print(exhibits_AND(imA, imB, imC))
+	print(exhibits_AND(imD, imE, imF))
+	print(exhibits_AND(imG, imH, im8))
 
 	# print(exhibits_OR(imA, imB, imC))
 	# print(exhibits_OR(imD, imE, imF))
@@ -98,6 +96,9 @@ def exhibits_XOR(im1, im2, im3):
 def exhibits_OR(im1, im2, im3):
 	return Pillow.images_match(Pillow.OR_image(im1, im2), im3)
 
+
+def exhibits_AND(im1, im2, im3):
+	return Pillow.images_match(Pillow.AND_image(im1, im2), im3)
 
 def region_summation_answers(im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h):
 	images = [im_a, im_b, im_c, im_d, im_e, im_f, im_g, im_h]

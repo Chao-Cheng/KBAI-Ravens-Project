@@ -27,6 +27,9 @@ def get_subtractions_image(im1, im2):
 	return Chops.subtract(fuzzify(im2), im1)
 # END ADD/SUB IMAGES
 
+def AND_image(im1, im2):
+	return Chops.add(im1, im2)
+
 def OR_image(im1, im2):
 	return Chops.invert(Chops.add(Chops.invert(im1), Chops.invert(im2)))
 
