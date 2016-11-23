@@ -8,7 +8,7 @@ BLACK_WHITE_CUTOFF = 65  # Tend to only take things as black if they are very bl
 FUZZY_MATCH_RESOLUTION = IMAGE_SIDE // 30  # won't offset image more than 3 pixels when matching
 FUZZIFICATION_LIMIT = 1  # FUZZY_MATCH_RESOLUTION // 2  # how much to blur the image
 
-# corner_reduce = Image.open('corner-reduce.png')
+corner_reduce = Image.open('corner-reduce.png')
 
 # ADD/SUB IMAGES
 def get_same_image(im1, im2):

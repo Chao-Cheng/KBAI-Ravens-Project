@@ -103,6 +103,8 @@ class Agent:
 				print('Only one valid answer:', valid_answers[0])
 				self.print_elapsed_time()
 				return valid_answers[0]
+			elif len(valid_answers) == 0:
+				return -1
 
 			progression_answer = self.get_progression_answer(valid_answers)
 			if progression_answer > -1:
