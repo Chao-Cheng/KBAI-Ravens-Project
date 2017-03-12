@@ -15,5 +15,5 @@ to identify objects in your image and draw relationships between them, I chose t
 
 I did my best to minimize assumptions about the image, and I tried to make my algoritm as flexible as possible.
 By processing the image and analyzing pixel values only, I was able to draw relationships among the various matrix sectors.
-Using these relationships my algorithm constructs what it deems the "ideal" solution, and then compares this "ideal" solution
+Using these relationships, my algorithm constructs what it deems the "ideal" solution and then compares this "ideal" solution
 to the available answers.
